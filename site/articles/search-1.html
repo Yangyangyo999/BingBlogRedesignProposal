@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How does Bing use structured data?</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <div class="article-page">
+      <a class="back-link" href="../index.html">← 返回首页</a>
+      <div class="article-title-group">
+        <h1>How does Bing use structured data?</h1>
+        <div class="article-meta">
+          <span>By Search Quality Insights</span>
+          <span>May 22, 2024</span>
+          <span>8 min read</span>
+        </div>
+        <div class="article-summary">
+          Structured data helps Bing determine meaning, content type and the best way to present a page in search results.
+        </div>
+        <div class="article-tags">
+          <span class="tag">Search</span>
+          <span class="tag">Structured Data</span>
+          <span class="tag">AI</span>
+        </div>
+      </div>
+      <div class="article-content">
+        <p>Bing uses structured data as a signal to better understand the relationships in your content. This can unlock rich results, knowledge panels, and answer cards that are more helpful to users.</p>
+        <h2>The role of schema markup</h2>
+        <p>Schema tells Bing what the content is about. An Article schema is very different from a Product schema, and giving Bing the right type is critical.</p>
+        <div class="article-code"><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How does Bing use structured data?",
+  "author": {
+    "@type": "Organization",
+    "name": "Bing"
+  }
+}
+&lt;/script&gt;</code></div>
+        <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1200&auto=format&fit=crop&crop=entropy" alt="Schema example">
+        <h2>Improve relevancy and experience</h2>
+        <p>When Bing understands the content, it can match search intent more precisely and display the page in a richer format for users.</p>
+        <p>Always validate your markup and avoid over-marking content. Keep schema focused and accurate to preserve trust and ranking value.</p>
+      </div>
+      <div class="related-articles">
+        <h3>Related articles</h3>
+        <div class="related-grid">
+          <a class="related-card" href="hero-main.html">
+            <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df?q=80&w=900&auto=format&fit=crop&crop=entropy" alt="search visibility">
+            <div class="related-body">
+              <h4>How to prepare your site for better visibility in Bing Search</h4>
+              <p>Learn which optimization signals matter most for Bing Search.</p>
+            </div>
+          </a>
+          <a class="related-card" href="search-2.html">
+            <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=900&auto=format&fit=crop&crop=entropy" alt="ranking updates">
+            <div class="related-body">
+              <h4>Search ranking updates and what they mean</h4>
+              <p>Understand recent ranking signal changes and how to respond.</p>
+            </div>
+          </a>
+          <a class="related-card" href="hero-side-1.html">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=900&auto=format&fit=crop&crop=faces" alt="snippet control">
+            <div class="related-body">
+              <h4>Bing Introduces Support for the data-nosnippet HTML Attribute</h4>
+              <p>Protect sensitive content and choose what appears in search previews.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home - Microsoft Bing Blogs</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="logo">
+          <div class="title">Microsoft Bing Blogs</div>
+        </div>
+        <nav class="nav">
+          <a href="#" class="active">Home</a>
+          <a href="#">Search</a>
+          <a href="#">Maps</a>
+          <a href="#">Webmaster</a>
+          <a href="#">Search Quality Insights</a>
+          <a href="#">Engineering Blog</a>
+        </nav>
+        <div class="search">
+          <input id="searchInput" placeholder="Search posts, topics, r" />
+          <button id="searchBtn">Search</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container main-grid">
+      <section class="hero">
+        <div class="editors-pick">
+          <h3 class="section-title">Editors' Pick</h3>
+          <div class="carousel" id="editorsCarousel">
+            <button class="carousel-prev" aria-label="Previous">◀</button>
+            <div class="slides">
+              <a class="slide" href="articles/hero-main.html">
+                <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df?q=80&w=1600&auto=format&fit=crop&crop=entropy" alt="slide1">
+                <div class="slide-category category-webmaster">Webmaster</div>
+                <div class="slide-meta">
+                  <h3>How to prepare your site for better visibility in Bing Search</h3>
+                  <p class="muted">Structured data, nosnippet tips and clear content guidance.</p>
+                </div>
+              </a>
+              <a class="slide" href="articles/hero-side-1.html">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1600&auto=format&fit=crop&crop=entropy" alt="slide2">
+                <div class="slide-category category-webmaster">Webmaster</div>
+                <div class="slide-meta">
+                  <h3>Bing Introduces Support for the data-nosnippet HTML Attribute</h3>
+                  <p class="muted">Control how your content appears in search results and AI.</p>
+                </div>
+              </a>
+              <a class="slide" href="articles/search-1.html">
+                <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1600&auto=format&fit=crop&crop=entropy" alt="slide3">
+                <div class="slide-category category-maps">Maps</div>
+                <div class="slide-meta">
+                  <h3>Introducing the New Bing Places for Business</h3>
+                  <p class="muted">List your business and reach local customers faster.</p>
+                </div>
+              </a>
+              <a class="slide" href="articles/search-2.html">
+                <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1600&auto=format&fit=crop&crop=entropy" alt="slide4">
+                <div class="slide-category category-search">Search</div>
+                <div class="slide-meta">
+                  <h3>Announcing Microsoft Rewards Ultimate Giveaway</h3>
+                  <p class="muted">More prizes, more winners — how it works.</p>
+                </div>
+              </a>
+              <a class="slide" href="articles/search-3.html">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop&crop=entropy" alt="slide5">
+                <div class="slide-category category-eng">Engineering Blog</div>
+                <div class="slide-meta">
+                  <h3>Bing Image Creator adds GPT-40 alongside DALL·E3</h3>
+                  <p class="muted">New image generation options for creators.</p>
+                </div>
+              </a>
+            </div>
+            <button class="carousel-next" aria-label="Next">▶</button>
+            <div class="carousel-dots" id="carouselDots">....</div>
+          </div>
+        </div>
+
+        <aside class="latest-updates">
+          <h3 class="section-title">Latest Updates <a href="#" class="viewall latest-updates-viewmore">View more →</a></h3>
+          <a class="card-link" href="articles/hero-side-1.html">
+            <article class="update card cat-webmaster">
+            <div class="update-media card-media">
+              <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=900&auto=format&fit=crop&crop=faces" alt="u1">
+              <div class="category-badge">Webmaster</div>
+            </div>
+            <div class="update-body">
+              <h4>New Webmaster tools to help you monitor indexing</h4>
+              <p class="muted">Quick overview of improvements to the indexing dashboard.</p>
+              <div class="tags"><span class="tag">indexing</span><span class="tag">tools</span></div>
+            </div>
+            </article>
+          </a>
+          <a class="card-link" href="articles/search-2.html">
+            <article class="update card cat-search">
+            <div class="update-media card-media">
+              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=900&auto=format&fit=crop&crop=faces" alt="u2">
+              <div class="category-badge">Search</div>
+            </div>
+            <div class="update-body">
+              <h4>Bing ranking updates and what they mean</h4>
+              <p class="muted">A brief on ranking signal adjustments for better relevancy.</p>
+              <div class="tags"><span class="tag">ranking</span><span class="tag">signals</span></div>
+            </div>
+            </article>
+          </a>
+        </aside>
+      </section>
+
+      <section class="what-people-ask section">
+        <h3 class="section-title">What People Ask AI</h3>
+        <div class="qa-cards">
+          <a class="card qa-card" href="articles/search-1.html">
+            <article class="card cat-search">
+              <div class="card-media">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=900&auto=format&fit=crop&crop=faces" alt="q1">
+                <div class="category-badge">Search</div>
+              </div>
+              <div class="card-body">
+                <h4>How does Bing use structured data?</h4>
+                <p class="muted">Short summary about structured data and how Bing uses it.</p>
+                <div class="tags"><span class="tag">structured-data</span><span class="tag">seo</span></div>
+              </div>
+            </article>
+          </a>
+          <a class="card qa-card" href="articles/search-2.html">
+            <article class="card cat-maps">
+              <div class="card-media">
+                <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=900&auto=format&fit=crop&crop=faces" alt="q2">
+                <div class="category-badge">Maps</div>
+              </div>
+              <div class="card-body">
+                <h4>What is the best way to list a business?</h4>
+                <p class="muted">Tips for listing and optimizing a local business on Bing.</p>
+                <div class="tags"><span class="tag">business</span><span class="tag">local</span></div>
+              </div>
+            </article>
+          </a>
+          <a class="card qa-card" href="articles/search-3.html">
+            <article class="card cat-webmaster">
+              <div class="card-media">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=900&auto=format&fit=crop&crop=faces" alt="q3">
+                <div class="category-badge">Webmaster</div>
+              </div>
+              <div class="card-body">
+                <h4>Can I control snippets with data-nosnippet?</h4>
+                <p class="muted">How `data-nosnippet` affects snippet generation in search results.</p>
+                <div class="tags"><span class="tag">snippet</span><span class="tag">meta</span></div>
+              </div>
+            </article>
+          </a>
+          <a class="card qa-card" href="articles/maps-1.html">
+            <article class="card cat-maps">
+              <div class="card-media">
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=900&h=560&auto=format&fit=crop&crop=faces" alt="q4">
+                <div class="category-badge">Maps</div>
+              </div>
+              <div class="card-body">
+                <h4>How to verify a local business?</h4>
+                <p class="muted">Verification steps and owner guidance for local listings.</p>
+                <div class="tags"><span class="tag">verification</span><span class="tag">owners</span></div>
+              </div>
+            </article>
+          </a>
+        </div>
+      </section>
+
+      <!-- Five category sections -->
+      <section class="section category" id="cat-search">
+        <h3 class="section-title">Search <a class="viewall" href="#">View more →</a></h3>
+        <div class="cards">
+          <a class="card-link" href="articles/search-1.html">
+            <article class="card cat-search">
+              <div class="card-media">
+                <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=900&auto=format&fit=crop&crop=faces" alt="search1">
+                <div class="category-badge">Search</div>
+              </div>
+              <div class="card-body">
+                <h4>Search: Article 1</h4>
+                <p class="muted">Short description of the article.</p>
+                <div class="tags"><span class="tag">seo</span><span class="tag">best-practices</span></div>
+              </div>
+            </article>
+          </a>
+          <a class="card-link" href="articles/search-2.html">
+            <article class="card cat-search">
+              <div class="card-media">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=900&auto=format&fit=crop&crop=faces" alt="search2">
+                <div class="category-badge">Search</div>
+              </div>
+              <div class="card-body">
+                <h4>Search: Article 2</h4>
+                <p class="muted">Short description of the article.</p>
+                <div class="tags"><span class="tag">analysis</span><span class="tag">ranking</span></div>
+              </div>
+            </article>
+          </a>
+          <a class="card-link" href="articles/search-3.html">
+            <article class="card cat-search">
+              <div class="card-media">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=900&auto=format&fit=crop&crop=faces" alt="search3">
+                <div class="category-badge">Search</div>
+              </div>
+              <div class="card-body">
+                <h4>Search: Article 3</h4>
+                <p class="muted">Short description of the article.</p>
+                <div class="tags"><span class="tag">updates</span><span class="tag">signals</span></div>
+              </div>
+            </article>
+          </a>
+        </div>
+      </section>
+
+      <section class="section category" id="cat-maps">
+        <h3 class="section-title">Maps <a class="viewall" href="#">View more →</a></h3>
+        <div class="cards">
+          <a class="card-link" href="articles/maps-1.html">
+            <article class="card cat-maps">
+              <div class="card-media">
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=900&auto=format&fit=crop&crop=faces" alt="maps1">
+                <div class="category-badge">Maps</div>
+              </div>
+              <div class="card-body">
+                <h4>Maps: Article 1</h4>
+                <p class="muted">Short description.</p>
+                <div class="tags"><span class="tag">local</span><span class="tag">places</span></div>
+              </div>
+            </article>
+          </a>
+          <a class="card-link" href="articles/maps-2.html">
+            <article class="card cat-maps">
+              <div class="card-media">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=900&auto=format&fit=crop&crop=faces" alt="maps2">
+                <div class="category-badge">Maps</div>
+              </div>
+              <div class="card-body">
+                <h4>Maps: Article 2</h4>
+                <p class="muted">Short description.</p>
+                <div class="tags"><span class="tag">navigation</span><span class="tag">updates</span></div>
+              </div>
+            </article>
+          </a>
+          <a class="card-link" href="articles/hero-side-2.html">
+            <article class="card cat-maps">
+              <div class="card-media">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=900&auto=format&fit=crop&crop=faces" alt="maps3">
+                <div class="category-badge">Maps</div>
+              </div>
+              <div class="card-body">
+                <h4>Maps: Article 3</h4>
+                <p class="muted">Short description.</p>
+                <div class="tags"><span class="tag">features</span><span class="tag">guides</span></div>
+              </div>
+            </article>
+          </a>
+        </div>
+      </section>
+
+      <section class="section category" id="cat-webmaster">
+        <h3 class="section-title">Webmaster <a class="viewall" href="#">View more →</a></h3>
+        <div class="cards">
+          <a class="card-link" href="articles/hero-side-1.html">
+            <article class="card cat-webmaster">
+              <div class="card-media">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=900&auto=format&fit=crop&crop=faces" alt="web1">
+                <div class="category-badge">Webmaster</div>
+              </div>
+              <div class="card-body">
+                <h4>Webmaster: Article 1</h4>
+                <p class="muted">Short description.</p>
+                <div class="tags"><span class="tag">tools</span><span class="tag">monitoring</span></div>
+              </div>
+            </article>
+          </a>
+          <a class="card-link" href="articles/search-1.html">
+            <article class="card cat-webmaster">
+              <div class="card-media">
+                <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=900&auto=format&fit=crop&crop=faces" alt="web2">
+                <div class="category-badge">Webmaster</div>
+              </div>
+              <div class="card-body">
+                <h4>Webmaster: Article 2</h4>
+                <p class="muted">Short description.</p>
+                <div class="tags"><span class="tag">seo</span><span class="tag">indexing</span></div>
+              </div>
+            </article>
+          </a>
+          <a class="card-link" href="articles/search-3.html">
+            <article class="card cat-webmaster">
+              <div class="card-media">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=900&auto=format&fit=crop&crop=faces" alt="web3">
+                <div class="category-badge">Webmaster</div>
+              </div>
+              <div class="card-body">
+                <h4>Webmaster: Article 3</h4>
+                <p class="muted">Short description.</p>
+                <div class="tags"><span class="tag">guides</span><span class="tag">best-practices</span></div>
+              </div>
+            </article>
+          </a>
+        </div>
+      </section>
+
+      <section class="section category" id="cat-sqi">
+        <h3 class="section-title">Search Quality Insights <a class="viewall" href="#">View more →</a></h3>
+        <div class="cards">
+          <a class="card-link" href="articles/search-2.html">
+            <article class="card cat-sqi">
+              <div class="card-media">
+                <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=900&auto=format&fit=crop&crop=faces" alt="sqi1">
+                <div class="category-badge">Search Quality Insights</div>
+              </div>
+              <div class="card-body">
+                <h4>SQI: Article 1</h4>
+                <p class="muted">Short description.</p>
+                <div class="tags"><span class="tag">signals</span><span class="tag">relevance</span></div>
+              </div>
+            </article>
+          </a>
+          <a class="card-link" href="articles/search-3.html">
+            <article class="card cat-sqi">
+              <div class="card-media">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=900&auto=format&fit=crop&crop=faces" alt="sqi2">
+                <div class="category-badge">Search Quality Insights</div>
+              </div>
+              <div class="card-body">
+                <h4>SQI: Article 2</h4>
+                <p class="muted">Short description.</p>
+                <div class="tags"><span class="tag">evaluation</span><span class="tag">tests</span></div>
+              </div>
+            </article>
+          </a>
+          <a class="card-link" href="articles/maps-1.html">
+            <article class="card cat-sqi">
+              <div class="card-media">
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=900&auto=format&fit=crop&crop=faces" alt="sqi3">
+                <div class="category-badge">Search Quality Insights</div>
+              </div>
+              <div class="card-body">
+                <h4>SQI: Article 3</h4>
+                <p class="muted">Short description.</p>
+                <div class="tags"><span class="tag">research</span><span class="tag">metrics</span></div>
+              </div>
+            </article>
+          </a>
+        </div>
+      </section>
+
+      <section class="section category" id="cat-eng">
+        <h3 class="section-title">Engineering Blog <a class="viewall" href="#">View more →</a></h3>
+        <div class="cards">
+          <a class="card-link" href="articles/search-1.html">
+            <article class="card cat-eng">
+              <div class="card-media">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=900&auto=format&fit=crop&crop=faces" alt="eng1">
+                <div class="category-badge">Engineering Blog</div>
+              </div>
+              <div class="card-body">
+                <h4>Engineering: Article 1</h4>
+                <p class="muted">Short description.</p>
+                <div class="tags"><span class="tag">performance</span><span class="tag">systems</span></div>
+              </div>
+            </article>
+          </a>
+          <a class="card-link" href="articles/search-2.html">
+            <article class="card cat-eng">
+              <div class="card-media">
+                <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=900&auto=format&fit=crop&crop=faces" alt="eng2">
+                <div class="category-badge">Engineering Blog</div>
+              </div>
+              <div class="card-body">
+                <h4>Engineering: Article 2</h4>
+                <p class="muted">Short description.</p>
+                <div class="tags"><span class="tag">architecture</span><span class="tag">design</span></div>
+              </div>
+            </article>
+          </a>
+          <a class="card-link" href="articles/search-3.html">
+            <article class="card cat-eng">
+              <div class="card-media">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=900&auto=format&fit=crop&crop=faces" alt="eng3">
+                <div class="category-badge">Engineering Blog</div>
+              </div>
+              <div class="card-body">
+                <h4>Engineering: Article 3</h4>
+                <p class="muted">Short description.</p>
+                <div class="tags"><span class="tag">devops</span><span class="tag">tools</span></div>
+              </div>
+            </article>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© Microsoft Bing Blogs - Demo</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^cmd /c dir site /s$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
