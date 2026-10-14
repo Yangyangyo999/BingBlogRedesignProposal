@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bing Blogs Admin</title>
+    <link rel="stylesheet" href="admin.css">
+  </head>
+  <body>
+    <header class="admin-header">
+      <div class="admin-header-inner">
+        <a class="admin-brand" href="index.html" aria-label="Bing Blogs home">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </span>
+          <span>Bing Blogs <strong>Admin</strong></span>
+        </a>
+        <div class="header-actions">
+          <button class="button button-ghost" id="previewButton" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Zm9.5 3.2A3.2 3.2 0 1 0 12 8.8a3.2 3.2 0 0 0 0 6.4Z"/></svg>
+            Preview
+          </button>
+          <button class="button button-ghost" id="shareButton" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16a3 3 0 0 0-2.4 1.2l-6.7-3.9a3.4 3.4 0 0 0 0-2.6l6.7-3.9a3 3 0 1 0-.9-1.6L8 9.1a3 3 0 1 0 0 5.8l6.7 3.9A3 3 0 1 0 18 16Z"/></svg>
+            Share preview
+          </button>
+          <button class="button button-secondary" id="saveButton" type="button">Save draft</button>
+          <button class="button button-primary" id="publishButton" type="button">Publish</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <div class="page-heading">
+        <div>
+          <p class="eyebrow">Content management</p>
+          <h1>New Article</h1>
+        </div>
+        <div class="draft-status"><span></span> Draft</div>
+      </div>
+
+      <nav class="editor-tabs" aria-label="Article editor sections">
+        <button class="editor-tab active" type="button" data-tab="main-body" aria-selected="true">Main Body</button>
+        <button class="editor-tab" type="button" data-tab="rich-section" aria-selected="false">Rich Section</button>
+        <button class="editor-tab" type="button" data-tab="other-information" aria-selected="false">Other Information</button>
+      </nav>
+
+      <form id="articleForm">
+        <section class="tab-panel active" id="main-body" aria-label="Main Body">
+          <div class="form-card">
+            <div class="field-group">
+              <label for="articleTitle">Title <span class="required">*</span></label>
+              <input id="articleTitle" name="title" type="text" placeholder="Enter a clear, descriptive article title" required>
+              <p class="field-help">This appears as the main headline on the article page.</p>
+            </div>
+
+            <div class="field-group">
+              <div class="field-label-row">
+                <label for="articleDescription">Description</label>
+                <label class="enable-control">
+                  <input type="checkbox" checked data-toggle-target="descriptionFields">
+                  <span class="switch" aria-hidden="true"></span>
+                  Enable
+                </label>
+              </div>
+              <div id="descriptionFields">
+                <textarea id="articleDescription" name="description" rows="3" placeholder="Write a short summary for cards, previews, and the article header"></textarea>
+                <div class="field-meta"><span>Recommended: 140–180 characters</span><span id="descriptionCount">0 / 180</span></div>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label>Content <span class="required">*</span></label>
+              <div class="content-editor">
+                <div class="content-tabs" role="tablist" aria-label="Content format">
+                  <button class="content-tab active" type="button" data-content-tab="rich-text" aria-selected="true">Rich text</button>
+                  <button class="content-tab" type="button" data-content-tab="html-content" aria-selected="false">HTML</button>
+                </div>
+                <div class="editor-toolbar" aria-label="Rich text toolbar">
+                  <button type="button" aria-label="Bold"><strong>B</strong></button>
+                  <button type="button" aria-label="Italic"><em>I</em></button>
+                  <span></span>
+                  <button type="button" aria-label="Bulleted list">☷</button>
+                  <button type="button" aria-label="Add link">↗</button>
+                  <button type="button" aria-label="Add image">▧</button>
+                </div>
+                <textarea class="content-panel active" id="rich-text" name="content" rows="14" placeholder="Start writing your article..."></textarea>
+                <textarea class="content-panel code-editor" id="html-content" name="htmlContent" rows="14" placeholder="<p>Write or paste HTML here...</p>"></textarea>
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <div class="field-group">
+                <label>Categories</label>
+                <div class="choice-list" aria-label="Categories">
+                  <label><input type="checkbox" name="categories" value="Search"><span>Search</span></label>
+                  <label><input type="checkbox" name="categories" value="Maps"><span>Maps</span></label>
+                  <label><input type="checkbox" name="categories" value="Webmaster"><span>Webmaster</span></label>
+                  <label><input type="checkbox" name="categories" value="Search Quality Insights"><span>Search Quality Insights</span></label>
+                  <label><input type="checkbox" name="categories" value="Engineering Blog"><span>Engineering Blog</span></label>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="tagInput">Tags</label>
+                <div class="tag-editor" id="tagEditor">
+                  <div class="tag-values" id="tagValues"></div>
+                  <input id="tagInput" type="text" placeholder="Type a tag and press Enter">
+                </div>
+                <p class="field-help">Use Enter or a comma to add a tag.</p>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label>Featured image</label>
+              <button class="upload-area" id="uploadButton" type="button">
+                <input id="featuredImage" name="featuredImage" type="file" accept="image/*" hidden>
+                <span class="upload-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 7.5 7.5l1.4 1.4 2.1-2.1V15h2V6.8l2.1 2.1 1.4-1.4L12 3ZM5 14v5h14v-5h2v7H3v-7h2Z"/></svg>
+                </span>
+                <strong id="uploadTitle">Upload featured image</strong>
+                <span id="uploadHelp">PNG, JPG, or WebP up to 10 MB</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="rich-section" aria-label="Rich Section" hidden>
+          <div class="form-card">
+            <div class="optional-section">
+              <div class="section-control">
+                <div>
+                  <h2>Key Takeaway</h2>
+                  <p>Highlight the most important ideas before the article body.</p>
+                </div>
+                <label class="enable-control">
+                  <input type="checkbox" checked data-toggle-target="takeawayFields">
+                  <span class="switch" aria-hidden="true"></span>
+                  Enable
+                </label>
+              </div>
+              <div id="takeawayFields">
+                <textarea name="takeaways" rows="6" placeholder="Enter one takeaway per line"></textarea>
+                <p class="field-help">Recommended: 3–5 concise bullet points.</p>
+              </div>
+            </div>
+
+            <div class="optional-section">
+              <div class="section-control">
+                <div>
+                  <h2>Frequent Asked Questions</h2>
+                  <p>Add, remove, and reorder common questions for this article.</p>
+                </div>
+                <label class="enable-control">
+                  <input type="checkbox" checked data-toggle-target="faqFields">
+                  <span class="switch" aria-hidden="true"></span>
+                  Enable
+                </label>
+              </div>
+              <div id="faqFields">
+                <div class="faq-editor-list" id="faqEditorList"></div>
+                <button class="button button-add" id="addFaqButton" type="button">
+                  <span>+</span> Add question
+                </button>
+              </div>
+            </div>
+
+            <div class="optional-section">
+              <div class="section-control">
+                <div>
+                  <h2>Author association</h2>
+                  <p>Select up to three authors in display order.</p>
+                </div>
+                <label class="enable-control">
+                  <input type="checkbox" checked data-toggle-target="authorFields">
+                  <span class="switch" aria-hidden="true"></span>
+                  Enable
+                </label>
+              </div>
+              <div class="author-select-list" id="authorFields">
+                <label class="author-option">
+                  <input type="checkbox" name="authors" value="Microsoft Webmaster Team">
+                  <span class="author-avatar avatar-blue">MW</span>
+                  <span><strong>Microsoft Webmaster Team</strong><small>Webmaster Product Team</small></span>
+                </label>
+                <label class="author-option">
+                  <input type="checkbox" name="authors" value="Bing Search Team">
+                  <span class="author-avatar avatar-purple">BS</span>
+                  <span><strong>Bing Search Team</strong><small>Search Experience Team</small></span>
+                </label>
+                <label class="author-option">
+                  <input type="checkbox" name="authors" value="Search Quality Insights">
+                  <span class="author-avatar avatar-green">SQ</span>
+                  <span><strong>Search Quality Insights</strong><small>Search Quality Research Team</small></span>
+                </label>
+                <label class="author-option">
+                  <input type="checkbox" name="authors" value="Bing Maps Team">
+                  <span class="author-avatar avatar-orange">BM</span>
+                  <span><strong>Bing Maps Team</strong><small>Maps and Local Search Team</small></span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="other-information" aria-label="Other Information" hidden>
+          <div class="form-card">
+            <div class="field-group">
+              <label for="urlSlug">URL slug</label>
+              <div class="slug-field">
+                <span>bing.com/blogs/</span>
+                <input id="urlSlug" name="slug" type="text" value="" placeholder="article-title" readonly aria-readonly="true">
+              </div>
+              <p class="field-help">Automatically generated from the article title and cannot be edited.</p>
+            </div>
+          </div>
+        </section>
+      </form>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <template id="faqItemTemplate">
+      <article class="faq-editor-item" draggable="true">
+        <button class="drag-handle" type="button" aria-label="Drag to reorder">⋮⋮</button>
+        <div class="faq-editor-fields">
+          <label>Question <input type="text" name="faqQuestion" placeholder="Enter a question"></label>
+          <label>Answer <textarea name="faqAnswer" rows="3" placeholder="Enter the answer"></textarea></label>
+        </div>
+        <button class="remove-faq" type="button" aria-label="Remove question">×</button>
+      </article>
+    </template>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
