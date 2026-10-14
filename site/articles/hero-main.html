@@ -7,27 +7,50 @@
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body>
+    <div class="reading-progress" role="progressbar" aria-label="Article reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <span class="reading-progress-bar"></span>
+    </div>
     <div class="article-page">
       <a class="back-link" href="../index.html">← 返回首页</a>
-      <div class="article-title-group">
+      <nav class="article-section-nav" aria-label="Article sections">
+        <p>On this page</p>
+        <ul>
+          <li><a class="active" href="#overview">Overview</a></li>
+          <li><a href="#key-takeaways">Key Takeaways</a></li>
+          <li><a href="#article-body">Article Body</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#authors">Author</a></li>
+          <li><a href="#related-articles">Related Articles</a></li>
+        </ul>
+      </nav>
+      <div class="article-title-group" id="overview">
         <h1>How to prepare your site for better visibility in Bing Search</h1>
         <div class="article-meta">
-          <span>By Microsoft Webmaster Team</span>
+          <span class="article-authors">
+            <span class="article-author-prefix">By</span>
+            <a href="#author-webmaster">Microsoft Webmaster Team</a>
+            <a href="#author-search">Bing Search Team</a>
+            <a href="#author-quality">Search Quality Insights</a>
+          </span>
           <span>Aug 12, 2024</span>
           <span>7 min read</span>
         </div>
         <div class="article-summary">
           Learn the essential steps to optimize your pages for Bing Search, including structured data, page experience, metadata and content clarity.
         </div>
-        <div class="article-tags">
-          <span class="tag">Search</span>
-          <span class="tag">SEO</span>
-          <span class="tag">Webmaster</span>
-        </div>
       </div>
-      <div class="article-content">
+      <section class="key-takeaways" id="key-takeaways" aria-labelledby="key-takeaways-title">
+        <h2 id="key-takeaways-title">Key Takeaways</h2>
+        <ul>
+          <li>Use accurate structured data to help Bing understand the intent and format of each page.</li>
+          <li>Prioritize fast loading, mobile-friendly layouts, and secure connections.</li>
+          <li>Write clear metadata and page content that directly answers the user's search intent.</li>
+          <li>Review search analytics after launch and refine content based on real query performance.</li>
+        </ul>
+      </section>
+      <div class="article-content" id="article-body">
         <p>Bing evaluates your content through a combination of technical signals and relevance. Preparing your site for search visibility means making it easy for crawlers to understand your pages and for users to find the answers they need.</p>
-        <h2>Structured data helps Bing understand intent</h2>
+        <h2 id="structured-data">Structured data helps Bing understand intent</h2>
         <p>Rich markup like JSON-LD gives explicit context to your content. Use schema types that match your article, product, FAQ, or event so Bing can present richer search experiences.</p>
         <div class="article-code"><code>&lt;script type="application/ld+json"&gt;
 {
@@ -41,12 +64,91 @@
 }
 &lt;/script&gt;</code></div>
         <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1200&auto=format&fit=crop&crop=entropy" alt="Structured data example">
-        <h2>Make your page experience consistent</h2>
+        <h2 id="page-experience">Make your page experience consistent</h2>
         <p>Page speed, mobile friendliness, and secure connections all matter. A clean page layout with fast-loading assets reduces friction and improves your chances in search results.</p>
         <div class="article-video"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe></div>
         <p>After launch, measure performance using search analytics and adjust content based on queries and page engagement.</p>
       </div>
-      <div class="related-articles">
+      <section class="article-faq" id="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequent Asked Questions</h2>
+        <div class="faq-list">
+          <details>
+            <summary>What is the first step to improve visibility in Bing Search?</summary>
+            <p>Start by making sure Bing can crawl and index your important pages, then confirm that each page has a clear purpose, descriptive metadata, and useful content.</p>
+          </details>
+          <details>
+            <summary>Is structured data required for ranking?</summary>
+            <p>Structured data is not required, but accurate markup helps Bing understand your content and can make pages eligible for richer search experiences.</p>
+          </details>
+          <details>
+            <summary>How important is mobile page experience?</summary>
+            <p>A consistent mobile experience is essential because it helps visitors reach content quickly and interact with the page without unnecessary friction.</p>
+          </details>
+          <details>
+            <summary>How often should search performance be reviewed?</summary>
+            <p>Review performance regularly after publishing and after significant site changes. Use query and engagement trends to guide meaningful updates.</p>
+          </details>
+        </div>
+      </section>
+      <section class="article-author-section" id="authors" aria-label="Authors">
+        <div class="section-heading-row">
+          <div class="author-carousel-controls" aria-label="Author carousel controls">
+            <button class="author-carousel-prev" type="button" aria-label="Previous author">←</button>
+            <span class="author-carousel-status" aria-live="polite">1 / 3</span>
+            <button class="author-carousel-next" type="button" aria-label="Next author">→</button>
+          </div>
+        </div>
+        <div class="author-carousel">
+          <div class="author-carousel-track">
+            <article class="author-card" id="author-webmaster">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=320&auto=format&fit=crop&crop=face" alt="Microsoft Webmaster Team">
+              <div class="author-card-content">
+                <div class="author-card-heading">
+                  <div>
+                    <h3>Microsoft Webmaster Team</h3>
+                    <p class="author-role">Webmaster Product Team</p>
+                  </div>
+                </div>
+                <p>Helping site owners understand indexing, site health, and the tools that improve content discoverability across Bing.</p>
+                <a class="linkedin-link" href="https://www.linkedin.com/company/microsoft/" target="_blank" rel="noopener noreferrer" aria-label="Microsoft Webmaster Team on LinkedIn">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.25H3.25V18.7H6.5V8.25Zm.2-3.23A1.88 1.88 0 1 0 2.94 5a1.88 1.88 0 0 0 3.76.02ZM18.7 12.7c0-3.15-1.68-4.62-3.93-4.62a3.4 3.4 0 0 0-3.08 1.7V8.25H8.44V18.7h3.25v-5.17c0-1.36.26-2.68 1.95-2.68 1.66 0 1.68 1.56 1.68 2.77v5.08h3.25l.13-6Z"/></svg>
+                </a>
+              </div>
+            </article>
+            <article class="author-card" id="author-search">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=320&auto=format&fit=crop&crop=face" alt="Bing Search Team">
+              <div class="author-card-content">
+                <div class="author-card-heading">
+                  <div>
+                    <h3>Bing Search Team</h3>
+                    <p class="author-role">Search Experience Team</p>
+                  </div>
+                </div>
+                <p>Designing useful search experiences that connect people with relevant, trustworthy information at the right moment.</p>
+                <a class="linkedin-link" href="https://www.linkedin.com/company/microsoft/" target="_blank" rel="noopener noreferrer" aria-label="Bing Search Team on LinkedIn">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.25H3.25V18.7H6.5V8.25Zm.2-3.23A1.88 1.88 0 1 0 2.94 5a1.88 1.88 0 0 0 3.76.02ZM18.7 12.7c0-3.15-1.68-4.62-3.93-4.62a3.4 3.4 0 0 0-3.08 1.7V8.25H8.44V18.7h3.25v-5.17c0-1.36.26-2.68 1.95-2.68 1.66 0 1.68 1.56 1.68 2.77v5.08h3.25l.13-6Z"/></svg>
+                </a>
+              </div>
+            </article>
+            <article class="author-card" id="author-quality">
+              <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=320&auto=format&fit=crop&crop=face" alt="Search Quality Insights">
+              <div class="author-card-content">
+                <div class="author-card-heading">
+                  <div>
+                    <h3>Search Quality Insights</h3>
+                    <p class="author-role">Search Quality Research Team</p>
+                  </div>
+                </div>
+                <p>Sharing practical guidance on relevance, content quality, and the signals that help search systems serve better results.</p>
+                <a class="linkedin-link" href="https://www.linkedin.com/company/microsoft/" target="_blank" rel="noopener noreferrer" aria-label="Search Quality Insights on LinkedIn">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.25H3.25V18.7H6.5V8.25Zm.2-3.23A1.88 1.88 0 1 0 2.94 5a1.88 1.88 0 0 0 3.76.02ZM18.7 12.7c0-3.15-1.68-4.62-3.93-4.62a3.4 3.4 0 0 0-3.08 1.7V8.25H8.44V18.7h3.25v-5.17c0-1.36.26-2.68 1.95-2.68 1.66 0 1.68 1.56 1.68 2.77v5.08h3.25l.13-6Z"/></svg>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <div class="related-articles" id="related-articles">
         <h3>Related articles</h3>
         <div class="related-grid">
           <a class="related-card" href="hero-side-1.html">
@@ -73,5 +175,6 @@
         </div>
       </div>
     </div>
+    <script src="../article.js"></script>
   </body>
 </html>
