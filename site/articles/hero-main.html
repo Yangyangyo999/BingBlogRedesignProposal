@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>How to prepare your site for better visibility in Bing Search</title>
+    <title>Introducing Topics Portfolio (Beta) in AI Performance</title>
+    <meta name="description" content="New beta feature in Bing Webmaster Tools that shows the thematic shape of your site’s presence in AI Search">
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body>
@@ -19,74 +20,98 @@
           <li><a href="#key-takeaways">Key Takeaways</a></li>
           <li><a href="#article-body">Article Body</a></li>
           <li><a href="#faq">FAQ</a></li>
-          <li><a href="#authors">Author</a></li>
+          <li><a href="#authors">Authors</a></li>
           <li><a href="#related-articles">Related Articles</a></li>
         </ul>
       </nav>
       <div class="article-title-group" id="overview">
-        <h1>How to prepare your site for better visibility in Bing Search</h1>
+        <h1>Introducing Topics Portfolio (Beta) in AI Performance</h1>
         <div class="article-meta">
           <span class="article-authors">
             <span class="article-author-prefix">By</span>
-            <a href="#author-webmaster">Alex Morgan</a>
-            <a href="#author-search">Jordan Taylor</a>
-            <a href="#author-quality">Casey Bennett</a>
+            <a href="#author-krishna-madhavan">Krishna Madhavan</a>
+            <a href="#author-saral-nigam">Saral Nigam</a>
+            <a href="#author-vivek-jain">Vivek Jain</a>
           </span>
-          <span>Aug 12, 2024</span>
-          <span>7 min read</span>
+          <span>6 min read</span>
         </div>
         <div class="article-summary">
-          Learn the essential steps to optimize your pages for Bing Search, including structured data, page experience, metadata and content clarity.
+          New beta feature in Bing Webmaster Tools that shows the thematic shape of your site’s presence in AI Search
         </div>
       </div>
       <section class="key-takeaways" id="key-takeaways" aria-labelledby="key-takeaways-title">
         <h2 id="key-takeaways-title">Key Takeaways</h2>
         <ul>
-          <li>Use accurate structured data to help Bing understand the intent and format of each page.</li>
-          <li>Prioritize fast loading, mobile-friendly layouts, and secure connections.</li>
-          <li>Write clear metadata and page content that directly answers the user's search intent.</li>
-          <li>Review search analytics after launch and refine content based on real query performance.</li>
+          <li>See your AI Search presence grouped into personalized thematic clusters.</li>
+          <li>Compare Topic Size, Sites Cited and Queries to understand demand and competition.</li>
+          <li>Explore opportunity queries where other sites appear and yours does not.</li>
+          <li>Treat beta metrics as directional signals and use feedback controls to improve the view.</li>
         </ul>
       </section>
       <div class="article-content" id="article-body">
-        <p>Bing evaluates your content through a combination of technical signals and relevance. Preparing your site for search visibility means making it easy for crawlers to understand your pages and for users to find the answers they need.</p>
-        <h2 id="structured-data">Structured data helps Bing understand intent</h2>
-        <p>Rich markup like JSON-LD gives explicit context to your content. Use schema types that match your article, product, FAQ, or event so Bing can present richer search experiences.</p>
-        <div class="article-code"><code>&lt;script type="application/ld+json"&gt;
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "How to prepare your site for better visibility in Bing Search",
-  "author": {
-    "@type": "Person",
-    "name": "Alex Morgan"
-  }
-}
-&lt;/script&gt;</code></div>
-        <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1200&auto=format&fit=crop&crop=entropy" alt="Structured data example">
-        <h2 id="page-experience">Make your page experience consistent</h2>
-        <p>Page speed, mobile friendliness, and secure connections all matter. A clean page layout with fast-loading assets reduces friction and improves your chances in search results.</p>
-        <div class="article-video"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe></div>
-        <p>After launch, measure performance using search analytics and adjust content based on queries and page engagement.</p>
+        <p>Today we are announcing a new beta feature inside the AI Performance report in Bing Webmaster Tools. It is called <strong>Topics Portfolio</strong>, and it groups the grounding queries where your site appears into broader thematic clusters – for example, football, taxes or AI Chatbots – so you can see the shape of your presence across those clusters rather than one query at a time.</p>
+        <p>AI Performance gives you a direct view into how your site contributes to AI-generated answers – from the grounding queries where it appears to the pages cited for each query. Topics Portfolio adds the broader view – how that presence is distributed across themes, how much demand each theme represents, how competitive each theme is and where your site has room to grow.</p>
+        <p>Everything in this view is personalized to your site. The topics and the opportunity queries are surfaced from your own presence and activity in AI Search, not from a generic ecosystem list.</p>
+        <h2 id="topics-portfolio">Topics Portfolio</h2>
+        <p>Login to <a href="https://www.bing.com/webmasters">Bing Webmaster Tools</a> and navigate to AI Performance. <strong>If there is sufficient data for your site,</strong> you will see a new Topics Portfolio tab next to Citations &amp; Pages. The landing page opens to your topic portfolio: a personalized list of the topics where your site has a meaningful presence, with three ecosystem measures beside each one.</p>
+        <img src="https://blogs.bing.com/api/media/assets/uploads/2026/10/2411b010-58cf-4025-85c2-01929ffd9af4-Ex1_L1_View_revised.png" alt="Topics Portfolio landing page showing topics and ecosystem measures" loading="lazy">
+        <p>Here is what each column means.</p>
+        <table>
+          <thead>
+            <tr><th scope="col">Column</th><th scope="col">What it tells you</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Topic</th><td>A broad thematic cluster of related grounding queries where your site appears.</td></tr>
+            <tr><th scope="row">Topic Size</th><td>The approximate total citations across all sites for this topic over the selected period – a measure of how much AI Search demand the topic represents.</td></tr>
+            <tr><th scope="row">Sites Cited</th><td>The approximate number of sites appearing for queries in this topic, which indicates how crowded the topic is.</td></tr>
+            <tr><th scope="row">Queries</th><td>The approximate number of distinct grounding queries in this topic.</td></tr>
+          </tbody>
+        </table>
+        <p>Below the topic table you will find Top Opportunity Queries: the strongest queries across your whole portfolio where other sites appear and yours does not. It is a fast, cross-topic read on where you could grow. Citation volumes there are shown as ranges rather than exact numbers.</p>
+        <img src="https://blogs.bing.com/api/media/assets/uploads/2026/10/50b7fb8e-d7fc-462e-a58b-00d32b35962d-Ex1_L1_View2.png" alt="Top Opportunity Queries across the portfolio with citation volume ranges" loading="lazy">
+        <h2 id="inside-a-topic">Inside a topic</h2>
+        <p>Click any topic and you drop into a detail page for it. Three KPI cards sit at the top – the Topic Size, your own citations within the topic, and the number of queries in it – and beneath them the queries themselves are split into two tables.</p>
+        <img src="https://blogs.bing.com/api/media/assets/uploads/2026/10/21caf4e6-6069-4e0e-a3ed-857102de79c4-Ex1_L2_View.png" alt="Topic detail page with KPI cards, Your Grounding Queries and Opportunity Queries" loading="lazy">
+        <p>Your Grounding Queries lists the top queries in this topic where your site already appears, aligned with the data you already know from Citations &amp; Pages. Opportunity Queries lists the top queries in the same topic where other sites appear and yours does not, with citation volumes shown as ranges. Together they give you the two halves of a topic: what you already own, and what is still open.</p>
+        <h2 id="how-topics-portfolio-helps">How Topics Portfolio helps</h2>
+        <p>Topics Portfolio is aimed at anyone who wants to understand and grow their site’s presence in AI-generated answers, and it should be most useful to publishers doing content strategy, editorial planning and competitive positioning. It gives you three things the report could not show before:</p>
+        <ul>
+          <li>A portfolio view – the thematic shape of your AI Search footprint at a glance.</li>
+          <li>Ecosystem context – how big each topic is, and how crowded it is with other sites.</li>
+          <li>Actionable opportunity – specific queries within specific topics where you can grow, drawn from real grounding activity happening on Bing.</li>
+        </ul>
+        <h2 id="beta-limitations">This is a beta feature – here is what that means</h2>
+        <p>We are shipping Topics Portfolio with a beta label. The view is built on AI-generated classification and on ecosystem aggregates, and we would rather put it in front of you early and improve it with your input than hold it back. Treat the numbers as directional signals for planning, not as a precise ledger. A few limitations are worth knowing before you start:</p>
+        <ul>
+          <li>Topic classification is AI-generated and can occasionally be imperfect, so a query may land in a topic you would have labelled differently.</li>
+          <li>Topics with insufficient site presence or insufficient ecosystem activity are not shown, so smaller sites may see a shorter list or may not even see this feature.</li>
+          <li>Branded queries can appear as opportunity queries. In a Running Shoes topic, for instance, contososhoes.com may see Air Shoes listed as an opportunity even though it is a Compete-branded query.</li>
+          <li>Topic Size, Sites Cited and Queries are approximate, and opportunity citation volumes are deliberately shown as ranges.</li>
+        </ul>
+        <h2 id="feedback">Tell us what you think</h2>
+        <p>Feedback is built directly into the view, and it is the fastest way to make this better. Every topic row and every opportunity query carries a thumbs up and a thumbs down control – you can see them in both screenshots above. If a topic does not describe your content, or an opportunity query is off the mark for your site, mark it down. If a cluster nails the way you actually plan your coverage, mark it up. Those signals go straight to the team working on the classification and the opportunity selection, and they shape what we fix first.</p>
+        <p>You can also reach us through the usual Bing Webmaster Tools feedback channels to tell us about an issue in more detail than a thumbs up or thumbs down allows.</p>
+        <h2 id="getting-started">Getting started</h2>
+        <p>Sign in to <a href="https://www.bing.com/webmasters">Bing Webmaster Tools</a>, open the AI Performance report for your site, and select the Topics tab. Choose a one-, two- or three-month window, start with the topics where your citations are already concentrated, then work down the opportunity queries. And when something looks wrong, tell us with a thumb – that is what the beta label is for.</p>
       </div>
       <section class="article-faq" id="faq" aria-labelledby="faq-title">
-        <h2 id="faq-title">Frequent Asked Questions</h2>
+        <h2 id="faq-title">Frequently Asked Questions</h2>
         <div class="faq-list">
           <details>
-            <summary>What is the first step to improve visibility in Bing Search?</summary>
-            <p>Start by making sure Bing can crawl and index your important pages, then confirm that each page has a clear purpose, descriptive metadata, and useful content.</p>
+            <summary>Where can I find Topics Portfolio?</summary>
+            <p>Sign in to Bing Webmaster Tools and open AI Performance. If your site has sufficient data, the Topics Portfolio tab appears next to Citations &amp; Pages.</p>
           </details>
           <details>
-            <summary>Is structured data required for ranking?</summary>
-            <p>Structured data is not required, but accurate markup helps Bing understand your content and can make pages eligible for richer search experiences.</p>
+            <summary>What are opportunity queries?</summary>
+            <p>They are grounding queries where other sites appear and yours does not. Citation volumes are shown as ranges rather than exact numbers.</p>
           </details>
           <details>
-            <summary>How important is mobile page experience?</summary>
-            <p>A consistent mobile experience is essential because it helps visitors reach content quickly and interact with the page without unnecessary friction.</p>
+            <summary>How precise are the beta metrics?</summary>
+            <p>Topic Size, Sites Cited and Queries are approximate. Use them as directional planning signals, and remember that AI-generated topic classification can be imperfect.</p>
           </details>
           <details>
-            <summary>How often should search performance be reviewed?</summary>
-            <p>Review performance regularly after publishing and after significant site changes. Use query and engagement trends to guide meaningful updates.</p>
+            <summary>How can I share feedback?</summary>
+            <p>Use the thumbs up and thumbs down controls on topic rows and opportunity queries, or use the usual Bing Webmaster Tools feedback channels for more detail.</p>
           </details>
         </div>
       </section>
@@ -100,49 +125,34 @@
         </div>
         <div class="author-carousel">
           <div class="author-carousel-track">
-            <article class="author-card" id="author-webmaster">
-              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=320&auto=format&fit=crop&crop=face" alt="Alex Morgan">
+            <article class="author-card" id="author-krishna-madhavan">
               <div class="author-card-content">
                 <div class="author-card-heading">
                   <div>
-                    <h3>Alex Morgan</h3>
-                    <p class="author-role">Webmaster Product Team</p>
+                    <h3>Krishna Madhavan</h3>
+                    <p class="author-role">Co-author</p>
                   </div>
                 </div>
-                <p>Helping site owners understand indexing, site health, and the tools that improve content discoverability across Bing.</p>
-                <a class="linkedin-link" href="https://www.linkedin.com/company/microsoft/" target="_blank" rel="noopener noreferrer" aria-label="Alex Morgan on LinkedIn">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.25H3.25V18.7H6.5V8.25Zm.2-3.23A1.88 1.88 0 1 0 2.94 5a1.88 1.88 0 0 0 3.76.02ZM18.7 12.7c0-3.15-1.68-4.62-3.93-4.62a3.4 3.4 0 0 0-3.08 1.7V8.25H8.44V18.7h3.25v-5.17c0-1.36.26-2.68 1.95-2.68 1.66 0 1.68 1.56 1.68 2.77v5.08h3.25l.13-6Z"/></svg>
-                </a>
               </div>
             </article>
-            <article class="author-card" id="author-search">
-              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=320&auto=format&fit=crop&crop=face" alt="Jordan Taylor">
+            <article class="author-card" id="author-saral-nigam">
               <div class="author-card-content">
                 <div class="author-card-heading">
                   <div>
-                    <h3>Jordan Taylor</h3>
-                    <p class="author-role">Search Experience Team</p>
+                    <h3>Saral Nigam</h3>
+                    <p class="author-role">Co-author</p>
                   </div>
                 </div>
-                <p>Designing useful search experiences that connect people with relevant, trustworthy information at the right moment.</p>
-                <a class="linkedin-link" href="https://www.linkedin.com/company/microsoft/" target="_blank" rel="noopener noreferrer" aria-label="Jordan Taylor on LinkedIn">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.25H3.25V18.7H6.5V8.25Zm.2-3.23A1.88 1.88 0 1 0 2.94 5a1.88 1.88 0 0 0 3.76.02ZM18.7 12.7c0-3.15-1.68-4.62-3.93-4.62a3.4 3.4 0 0 0-3.08 1.7V8.25H8.44V18.7h3.25v-5.17c0-1.36.26-2.68 1.95-2.68 1.66 0 1.68 1.56 1.68 2.77v5.08h3.25l.13-6Z"/></svg>
-                </a>
               </div>
             </article>
-            <article class="author-card" id="author-quality">
-              <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=320&auto=format&fit=crop&crop=face" alt="Casey Bennett">
+            <article class="author-card" id="author-vivek-jain">
               <div class="author-card-content">
                 <div class="author-card-heading">
                   <div>
-                    <h3>Casey Bennett</h3>
-                    <p class="author-role">Search Quality Research Team</p>
+                    <h3>Vivek Jain</h3>
+                    <p class="author-role">Co-author</p>
                   </div>
                 </div>
-                <p>Sharing practical guidance on relevance, content quality, and the signals that help search systems serve better results.</p>
-                <a class="linkedin-link" href="https://www.linkedin.com/company/microsoft/" target="_blank" rel="noopener noreferrer" aria-label="Casey Bennett on LinkedIn">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.25H3.25V18.7H6.5V8.25Zm.2-3.23A1.88 1.88 0 1 0 2.94 5a1.88 1.88 0 0 0 3.76.02ZM18.7 12.7c0-3.15-1.68-4.62-3.93-4.62a3.4 3.4 0 0 0-3.08 1.7V8.25H8.44V18.7h3.25v-5.17c0-1.36.26-2.68 1.95-2.68 1.66 0 1.68 1.56 1.68 2.77v5.08h3.25l.13-6Z"/></svg>
-                </a>
               </div>
             </article>
           </div>
