@@ -97,6 +97,7 @@ const secondaryArticleConfigs = {
   },
   'search-3.html': {
     author: 'Bing Blog Team',
+    showLinkedIn: false,
     role: '',
     bio: '<strong>Bing Blogs Team</strong> is responsible for building and evolving the Bing Blogs platform, creating a modern and reliable experience for publishing and discovering stories about Bing’s products, technology, and innovation. The team focuses on improving content experience, discoverability, and platform capabilities to better serve both readers and content creators.',
     image: '../images/bing-blog-team.png',
@@ -182,9 +183,9 @@ function enhanceSecondaryArticle() {
                 </div>
               </div>
               <p>${config.bio}</p>
-              <a class="linkedin-link" href="https://www.linkedin.com/company/microsoft/" target="_blank" rel="noopener noreferrer" aria-label="${config.author} on LinkedIn">
+              ${config.showLinkedIn !== false ? `<a class="linkedin-link" href="https://www.linkedin.com/company/microsoft/" target="_blank" rel="noopener noreferrer" aria-label="${config.author} on LinkedIn">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.25H3.25V18.7H6.5V8.25Zm.2-3.23A1.88 1.88 0 1 0 2.94 5a1.88 1.88 0 0 0 3.76.02ZM18.7 12.7c0-3.15-1.68-4.62-3.93-4.62a3.4 3.4 0 0 0-3.08 1.7V8.25H8.44V18.7h3.25v-5.17c0-1.36.26-2.68 1.95-2.68 1.66 0 1.68 1.56 1.68 2.77v5.08h3.25l.13-6Z"/></svg>
-              </a>
+              </a>` : ''}
             </div>
           </article>
         </div>
