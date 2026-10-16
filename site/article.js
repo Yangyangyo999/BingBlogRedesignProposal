@@ -97,9 +97,9 @@ const secondaryArticleConfigs = {
   },
   'search-3.html': {
     author: 'Bing Blog Team',
-    role: 'Bing Blogs Team',
+    role: '',
     bio: '<strong>Bing Blogs Team</strong> is responsible for building and evolving the Bing Blogs platform, creating a modern and reliable experience for publishing and discovering stories about Bing’s products, technology, and innovation. The team focuses on improving content experience, discoverability, and platform capabilities to better serve both readers and content creators.',
-    image: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=320&auto=format&fit=crop&crop=face',
+    image: '../images/bing-blog-team.png',
     takeaways: [
       'Select the image model that best matches the prompt style and creative goal.',
       'Use specific subjects, moods, colors, settings, and artistic direction in advanced prompts.',
@@ -178,7 +178,7 @@ function enhanceSecondaryArticle() {
               <div class="author-card-heading">
                 <div>
                   <h3>${config.author}</h3>
-                  <p class="author-role">${config.role}</p>
+                  ${config.role ? `<p class="author-role">${config.role}</p>` : ''}
                 </div>
               </div>
               <p>${config.bio}</p>
