@@ -96,9 +96,9 @@ const secondaryArticleConfigs = {
     ]
   },
   'search-3.html': {
-    author: 'Creative Tools Team',
-    role: 'AI Creative Experiences Team',
-    bio: 'Building approachable generative tools that help people turn detailed ideas into expressive visual concepts.',
+    author: 'Bing Blog Team',
+    role: 'Bing Blogs Team',
+    bio: '<strong>Bing Blogs Team</strong> is responsible for building and evolving the Bing Blogs platform, creating a modern and reliable experience for publishing and discovering stories about Bing’s products, technology, and innovation. The team focuses on improving content experience, discoverability, and platform capabilities to better serve both readers and content creators.',
     image: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=320&auto=format&fit=crop&crop=face',
     takeaways: [
       'Select the image model that best matches the prompt style and creative goal.',
