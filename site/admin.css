@@ -68,6 +68,7 @@ button { color:inherit; }
   background:#fff;
   font-weight:650;
   cursor:pointer;
+  text-decoration:none;
   transition:background 150ms ease,border-color 150ms ease,transform 150ms ease;
 }
 .button:hover { transform:translateY(-1px); }
