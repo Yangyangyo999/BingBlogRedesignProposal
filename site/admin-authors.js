@@ -144,6 +144,53 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  function loadSampleAuthors() {
+    const samples = [
+      { name: 'Alex Morgan', introduction: 'Demo individual author. Product storyteller exploring AI-powered search and helpful everyday discoveries.', platform: 'linkedin', initials: 'AM', color: '#1769aa' },
+      { name: 'Jamie Chen', introduction: 'Demo individual author. Engineer sharing ideas on search relevance, web technology, and developer experiences.', platform: 'instagram', initials: 'JC', color: '#7658a8' },
+      { name: 'Priya Shah', introduction: 'Demo individual author. Researcher focused on trustworthy AI, search quality, and making information more accessible.', platform: 'facebook', initials: 'PS', color: '#bd7042' },
+      { name: 'Bing Search Team', introduction: 'Demo team author. News and perspectives from the people building useful, intuitive search experiences.', platform: 'x', initials: 'BS', color: '#16766b' },
+      { name: 'Bing Maps Team', introduction: 'Demo team author. Updates on maps, local discovery, location intelligence, and exploring the world.', platform: 'website', initials: 'BM', color: '#3679ab' },
+      { name: 'Microsoft Webmaster Team', introduction: 'Demo team author. Practical guidance for site owners on crawling, indexing, and understanding search performance.', platform: 'linkedin', initials: 'MW', color: '#5d6c83', linkEnabled: false }
+    ];
+    const next = authors.slice();
+    for (const sample of samples) {
+      const slug = sample.name.toLowerCase().replace(/\s+/g, '-');
+      const id = `demo-${slug}`;
+      if (next.some(function (author) {
+        return author.id === id || author.name.toLowerCase() === sample.name.toLowerCase();
+      })) continue;
+      const canvas = document.createElement('canvas');
+      canvas.width = canvas.height = 160;
+      const context = canvas.getContext('2d');
+      if (!context) {
+        message('storageError', 'Sample avatars could not be generated. Enable canvas support and try again. No authors have been changed.');
+        return false;
+      }
+      context.fillStyle = sample.color;
+      context.fillRect(0, 0, 160, 160);
+      context.fillStyle = '#ffffff';
+      context.font = '600 52px Segoe UI, Arial';
+      context.textAlign = 'center';
+      context.textBaseline = 'middle';
+      context.fillText(sample.initials, 80, 80);
+      const linkEnabled = sample.linkEnabled !== false;
+      next.push({
+        id: id,
+        name: sample.name,
+        introduction: sample.introduction,
+        image: canvas.toDataURL('image/png'),
+        linkEnabled: linkEnabled,
+        platform: sample.platform,
+        url: linkEnabled ? `https://example.com/demo/${slug}` : ''
+      });
+    }
+    const added = next.length - authors.length;
+    if (!persist(next)) return false;
+    showToast(added ? `${added} sample authors added in this browser.` : 'Sample authors are already in your list. Existing profiles were kept.');
+    return true;
+  }
+
   function updateImage() {
     imagePreview.hidden = !image;
     if (image) imagePreview.src = image;
@@ -237,6 +284,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   document.getElementById('addAuthor').addEventListener('click', function () { openEditor(); });
   document.getElementById('addFirstAuthor').addEventListener('click', function () { openEditor(); });
+  document.getElementById('loadSampleAuthors').addEventListener('click', loadSampleAuthors);
   ['cancelAuthor', 'closeDialog'].forEach(function (id) {
     document.getElementById(id).addEventListener('click', function () { dialog.close(); });
   });
@@ -284,6 +332,13 @@ document.addEventListener('DOMContentLoaded', function () {
     message('storageError', 'Saved authors could not be loaded. Check browser storage permissions or repair the saved data, then reload. Adding authors is disabled to protect existing data.');
     document.getElementById('addAuthor').disabled = true;
     document.getElementById('addFirstAuthor').disabled = true;
+    document.getElementById('loadSampleAuthors').disabled = true;
   }
   render();
+  const previewUrl = new URL(window.location.href);
+  if (previewUrl.searchParams.get('demo') === 'authors' &&
+    !document.getElementById('loadSampleAuthors').disabled && loadSampleAuthors()) {
+    previewUrl.searchParams.delete('demo');
+    window.history.replaceState(null, '', previewUrl);
+  }
 });

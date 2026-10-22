@@ -28,9 +28,13 @@
           <h1>Author Management</h1>
           <p class="page-description">Manage author profiles and their social links.</p>
         </div>
-        <button class="button button-primary" id="addAuthor" type="button">+ Author</button>
+        <div class="header-actions">
+          <button class="button button-secondary" id="loadSampleAuthors" type="button">Load sample authors</button>
+          <button class="button button-primary" id="addAuthor" type="button">+ Author</button>
+        </div>
       </div>
       <p class="storage-note">Preview workspace: authors and uploaded images are saved in this browser only, not published to the live blog.</p>
+      <p class="storage-note">Load sample authors to add 3 individual and 3 team profiles without replacing existing authors. Sample social links use example.com placeholders.</p>
       <p class="error-message" id="storageError" role="alert" hidden></p>
       <section class="form-card author-list-card" aria-label="Authors">
         <div class="list-heading"><h2>All authors <span id="authorCount">0</span></h2></div>
