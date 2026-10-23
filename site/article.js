@@ -99,6 +99,8 @@ const secondaryArticleConfigs = {
   },
   'search-3.html': {
     author: 'Bing Blog Team',
+    authorAvatar: '../images/bing-blog-team-avatar.svg',
+    showAuthorCard: false,
     showLinkedIn: false,
     role: '',
     bio: '<strong>Bing Blogs Team</strong> is responsible for building and evolving the Bing Blogs platform, creating a modern and reliable experience for publishing and discovering stories about Bing’s products, technology, and innovation. The team focuses on improving content experience, discoverability, and platform capabilities to better serve both readers and content creators.',
@@ -149,6 +151,7 @@ function enhanceSecondaryArticle() {
   authorMeta.className = 'article-authors';
   authorMeta.innerHTML = `
     <span class="article-author-prefix">By</span>
+    ${config.authorAvatar ? `<img class="article-author-avatar" src="${config.authorAvatar}" alt="" width="32" height="32">` : ''}
     ${config.showAuthorCard !== false ? `<a href="#author-primary">${config.author}</a>` : config.author}
   `;
   titleGroup.querySelector('.article-tags')?.remove();

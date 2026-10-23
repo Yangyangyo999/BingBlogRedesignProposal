@@ -249,6 +249,15 @@ html,body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe
   align-items:center;
 }
 .article-page .article-meta .article-authors { gap:10px; }
+.article-author-avatar {
+  width:32px;
+  height:32px;
+  box-sizing:border-box;
+  border:1px solid #1f6f9b;
+  border-radius:50%;
+  object-fit:contain;
+  flex-shrink:0;
+}
 .article-page .article-meta .article-author-prefix { color:#374151; }
 .article-page .article-meta .article-authors a {
   color:#1f6f9b;
