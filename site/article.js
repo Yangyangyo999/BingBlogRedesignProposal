@@ -1,6 +1,7 @@
 const secondaryArticleConfigs = {
   'hero-side-1.html': {
     author: 'Bing Search Team',
+    showAuthorCard: false,
     role: 'Search Experience Team',
     bio: 'Building search controls that help publishers manage how their content appears across Bing results and AI-powered experiences.',
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=320&auto=format&fit=crop&crop=face',
@@ -64,7 +65,8 @@ const secondaryArticleConfigs = {
     ]
   },
   'search-1.html': {
-    author: 'Search Quality Insights',
+    author: 'Alex Morgan, Emily Carter, Daniel Brooks',
+    showAuthorCard: false,
     role: 'Search Quality Research Team',
     bio: 'Sharing practical guidance on relevance, structured information, and the signals that help search systems serve better results.',
     image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=320&auto=format&fit=crop&crop=face',
@@ -135,7 +137,7 @@ function enhanceSecondaryArticle() {
         <li><a href="#key-takeaways">Key Takeaways</a></li>
         <li><a href="#article-body">Article Body</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li><a href="#authors">Author</a></li>
+        ${config.showAuthorCard !== false ? '<li><a href="#authors">Author</a></li>' : ''}
         <li><a href="#related-articles">Related Articles</a></li>
       </ul>
     </nav>
@@ -147,7 +149,7 @@ function enhanceSecondaryArticle() {
   authorMeta.className = 'article-authors';
   authorMeta.innerHTML = `
     <span class="article-author-prefix">By</span>
-    <a href="#author-primary">${config.author}</a>
+    ${config.showAuthorCard !== false ? `<a href="#author-primary">${config.author}</a>` : config.author}
   `;
   titleGroup.querySelector('.article-tags')?.remove();
   titleGroup.insertAdjacentHTML('afterend', `
@@ -170,7 +172,7 @@ function enhanceSecondaryArticle() {
         }).join('')}
       </div>
     </section>
-    <section class="article-author-section" id="authors" aria-label="Author">
+    ${config.showAuthorCard !== false ? `<section class="article-author-section" id="authors" aria-label="Author">
       <div class="author-carousel">
         <div class="author-carousel-track">
           <article class="author-card" id="author-primary">
@@ -190,7 +192,7 @@ function enhanceSecondaryArticle() {
           </article>
         </div>
       </div>
-    </section>
+    </section>` : ''}
   `);
 }
 
