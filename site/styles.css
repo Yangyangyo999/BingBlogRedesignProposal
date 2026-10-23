@@ -269,7 +269,7 @@ html,body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe
   margin:0 10px 0 2px;
   font-weight:700;
 }
-.article-page .article-meta span:last-child::before {
+.article-page .article-meta > span:last-child::before {
   content:"\25f7";
   font-size:16px;
   color:#6b7280;
