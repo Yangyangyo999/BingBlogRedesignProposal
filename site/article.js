@@ -82,7 +82,12 @@ const secondaryArticleConfigs = {
     ]
   },
   'search-2.html': {
-    author: 'Search Quality Insights',
+    authors: [
+      { name: 'Olivia Bennett', avatar: '../images/olivia-bennett.svg' },
+      { name: 'Ethan Parker', avatar: '../images/ethan-parker.svg' },
+      { name: 'Sophia Mitchell', avatar: '../images/sophia-mitchell.svg' }
+    ],
+    showAuthorCard: false,
     role: 'Search Quality Research Team',
     bio: 'Explaining how content relevance, technical health, and user experience work together to support durable search performance.',
     image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=320&auto=format&fit=crop&crop=face',
@@ -151,8 +156,12 @@ function enhanceSecondaryArticle() {
   authorMeta.className = 'article-authors';
   authorMeta.innerHTML = `
     <span class="article-author-prefix">By</span>
-    ${config.authorAvatar ? `<img class="article-author-avatar" src="${config.authorAvatar}" alt="" width="32" height="32">` : ''}
-    ${config.showAuthorCard !== false ? `<a href="#author-primary">${config.author}</a>` : config.author}
+    ${config.authors ? config.authors.map(function (author) {
+      return `<span class="article-author-person"><img class="article-author-avatar" src="${author.avatar}" alt="" width="32" height="32">${author.name}</span>`;
+    }).join('') : `
+      ${config.authorAvatar ? `<img class="article-author-avatar" src="${config.authorAvatar}" alt="" width="32" height="32">` : ''}
+      ${config.showAuthorCard !== false ? `<a href="#author-primary">${config.author}</a>` : config.author}
+    `}
   `;
   titleGroup.querySelector('.article-tags')?.remove();
   titleGroup.insertAdjacentHTML('afterend', `

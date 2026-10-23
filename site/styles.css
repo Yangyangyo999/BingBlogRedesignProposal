@@ -249,6 +249,11 @@ html,body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe
   align-items:center;
 }
 .article-page .article-meta .article-authors { gap:10px; }
+.article-page .article-meta .article-authors:has(.article-author-person) { flex-wrap:wrap; }
+.article-page .article-meta .article-author-person {
+  gap:8px;
+  white-space:nowrap;
+}
 .article-author-avatar {
   width:32px;
   height:32px;
@@ -272,7 +277,7 @@ html,body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe
   text-decoration:none;
   display:inline-block;
 }
-.article-page .article-meta span + span::before {
+.article-page .article-meta > span + span::before {
   content:"\2022";
   color:#9ca3af;
   margin:0 10px 0 2px;
