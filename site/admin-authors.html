@@ -46,7 +46,7 @@
         </div>
         <div class="table-scroll" id="authorTable" hidden>
           <table>
-            <thead><tr><th scope="col">Author</th><th scope="col">Short introduction</th><th scope="col">Link</th><th scope="col">Actions</th></tr></thead>
+            <thead><tr><th scope="col">Author</th><th scope="col">Short Bio</th><th scope="col">Link</th><th scope="col">Actions</th></tr></thead>
             <tbody id="authorRows"></tbody>
           </table>
         </div>
@@ -60,53 +60,75 @@
           <button class="button button-ghost" id="closeDialog" type="button" aria-label="Close author form">&times;</button>
         </div>
         <div class="dialog-body">
-          <div class="field-group">
-            <label for="authorName">Name <span class="required">*</span></label>
-            <input id="authorName" name="name" type="text" placeholder="Enter author's name" maxlength="100" required>
-          </div>
-          <div class="field-group">
-            <label for="authorImage">Image</label>
-            <div class="image-upload">
-              <span class="profile-avatar" id="imagePlaceholder" aria-hidden="true">?</span>
-              <img class="profile-avatar" id="imagePreview" alt="Author image preview" hidden>
-              <div>
-                <input id="authorImage" type="file" accept="image/png,image/jpeg,image/webp,image/gif" aria-describedby="imageHelp imageError">
-                <p class="field-help" id="imageHelp">PNG, JPG, WebP, or GIF up to 2 MB.</p>
-                <button class="text-button" id="removeImage" type="button" hidden>Remove image</button>
-              </div>
+          <section class="profile-section" aria-labelledby="basicHeading">
+            <h3 id="basicHeading">Basic</h3>
+            <div class="field-group">
+              <label for="authorName">Name <span class="required">*</span></label>
+              <input id="authorName" name="name" type="text" placeholder="Enter author's name" maxlength="100" required>
+              <p class="field-help">Only Name is required. All other fields are optional.</p>
             </div>
-            <p class="error-message" id="imageError" role="alert" hidden></p>
-          </div>
-          <div class="field-group">
-            <label for="authorIntroduction">Short introduction</label>
-            <textarea id="authorIntroduction" name="introduction" rows="3" maxlength="300" placeholder="A short bio, role, or area of expertise"></textarea>
-            <div class="field-meta"><span>Keep it brief and helpful.</span><span id="introductionCount">0 / 300</span></div>
-          </div>
-          <div class="field-group">
-            <div class="field-label-row">
-              <label for="enableLink">Social link</label>
+            <div class="field-group">
+              <label for="authorImage">Image</label>
+              <div class="image-upload">
+                <span class="profile-avatar" id="imagePlaceholder" aria-hidden="true">--</span>
+                <img class="profile-avatar" id="imagePreview" alt="Author image preview" hidden>
+                <div>
+                  <input id="authorImage" type="file" accept="image/png,image/jpeg,image/webp,image/gif" aria-describedby="imageHelp imageError" hidden>
+                  <button class="button button-secondary" id="uploadImage" type="button" aria-describedby="imageHelp">Upload image</button>
+                  <p class="field-help" id="imageHelp">Defaults to your name's initials. Upload PNG, JPG, WebP, or GIF up to 2 MB. Removing an image restores the default avatar.</p>
+                  <button class="text-button" id="removeImage" type="button" hidden>Remove image</button>
+                </div>
+              </div>
+              <p class="error-message" id="imageError" role="alert" hidden></p>
+            </div>
+          </section>
+          <section class="profile-section" aria-labelledby="highlightHeading">
+            <div class="profile-section-heading">
+              <h3 id="highlightHeading">Optional</h3>
               <label class="enable-control">
-                <input id="enableLink" type="checkbox">
+                <input id="enableHighlight" type="checkbox" aria-controls="highlightFields" aria-expanded="false">
                 <span class="switch" aria-hidden="true"></span>
-                Enable link
+                Enable Optional
               </label>
             </div>
-            <p class="field-help">Choose the icon displayed with this author's link.</p>
-            <fieldset id="linkFields" disabled hidden>
-              <label for="linkPlatform">Platform</label>
-              <select id="linkPlatform" name="platform">
-                <option value="linkedin">LinkedIn</option>
-                <option value="instagram">Instagram (Ins)</option>
-                <option value="facebook">Facebook</option>
-                <option value="x">X (Twitter)</option>
-                <option value="website">Website</option>
-              </select>
-              <label for="authorLink">Link address <span class="required">*</span></label>
-              <input id="authorLink" name="url" type="url" placeholder="https://www.linkedin.com/in/your-profile" maxlength="2048">
-              <p class="field-help">Use a full https:// or http:// address.</p>
-              <div class="link-preview" id="linkPreview"></div>
+            <p class="field-help">Enable to display an optional title, short bio, and social link. Turning this off keeps your details for later.</p>
+            <fieldset class="highlight-fields" id="highlightFields" aria-labelledby="highlightHeading" disabled hidden>
+              <div class="field-group">
+                <label for="authorRole">Title/Role</label>
+                <input id="authorRole" name="role" type="text" placeholder="e.g. Product Manager" maxlength="100">
+              </div>
+              <div class="field-group">
+                <label for="authorIntroduction">Short Bio</label>
+                <textarea id="authorIntroduction" name="introduction" rows="3" maxlength="300" placeholder="A short bio or area of expertise"></textarea>
+                <div class="field-meta"><span>Keep it brief and helpful.</span><span id="introductionCount">0 / 300</span></div>
+              </div>
+              <div class="field-group">
+                <div class="field-label-row">
+                  <label for="enableLink">Social link</label>
+                  <label class="enable-control">
+                    <input id="enableLink" type="checkbox">
+                    <span class="switch" aria-hidden="true"></span>
+                    Enable link
+                  </label>
+                </div>
+                <p class="field-help">Choose the icon displayed with this author's link.</p>
+                <fieldset id="linkFields" disabled hidden>
+                  <label for="linkPlatform">Platform</label>
+                  <select id="linkPlatform" name="platform">
+                    <option value="linkedin">LinkedIn</option>
+                    <option value="instagram">Instagram (Ins)</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="x">X (Twitter)</option>
+                    <option value="website">Website</option>
+                  </select>
+                  <label for="authorLink">Link address</label>
+                  <input id="authorLink" name="url" type="url" placeholder="https://www.linkedin.com/in/your-profile" maxlength="2048">
+                  <p class="field-help">Optional. Use a full https:// or http:// address, or leave blank to save without a social link.</p>
+                  <div class="link-preview" id="linkPreview"></div>
+                </fieldset>
+              </div>
             </fieldset>
-          </div>
+          </section>
           <p class="error-message" id="formError" role="alert" hidden></p>
         </div>
         <div class="dialog-footer">
@@ -116,6 +138,7 @@
       </form>
     </dialog>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="admin-authors.js?v=2"></script>
+    <script src="author-utils.js"></script>
+    <script src="admin-authors.js?v=4"></script>
   </body>
 </html>

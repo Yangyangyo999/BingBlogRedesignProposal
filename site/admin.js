@@ -212,6 +212,8 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!Array.isArray(authors) || !authors.every(function (author) {
         return author && typeof author.name === 'string' && author.name.trim().length > 0 &&
           typeof author.introduction === 'string' &&
+          (author.role === undefined || (typeof author.role === 'string' && author.role.length <= 100)) &&
+          (author.highlightEnabled === undefined || typeof author.highlightEnabled === 'boolean') &&
           (author.image === undefined || author.image === '' ||
             (typeof author.image === 'string' && /^data:image\/(png|jpeg|webp|gif);base64,[A-Za-z0-9+/]+=*$/.test(author.image)));
       })) {
@@ -243,14 +245,15 @@ document.addEventListener('DOMContentLoaded', function () {
         avatar.src = author.image;
         avatar.alt = '';
       } else {
-        avatar.textContent = author.name.split(/\s+/).map(function (part) { return part[0]; }).join('').slice(0, 2).toUpperCase();
+        avatar.textContent = getAuthorInitials(author.name);
         avatar.setAttribute('aria-hidden', 'true');
       }
       const details = document.createElement('span');
       const name = document.createElement('strong');
       name.textContent = author.name;
       const introduction = document.createElement('small');
-      introduction.textContent = author.introduction;
+      introduction.textContent = author.highlightEnabled === false ? '' : author.role || author.introduction;
+      introduction.hidden = author.highlightEnabled === false;
       details.append(name, introduction);
       option.append(checkbox, avatar, details);
       authorList.appendChild(option);

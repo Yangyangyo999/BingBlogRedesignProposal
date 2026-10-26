@@ -12,9 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('authorForm');
   const dialog = document.getElementById('authorDialog');
   const nameInput = document.getElementById('authorName');
+  const roleInput = document.getElementById('authorRole');
   const introduction = document.getElementById('authorIntroduction');
   const imageInput = document.getElementById('authorImage');
   const imagePreview = document.getElementById('imagePreview');
+  const enableHighlight = document.getElementById('enableHighlight');
   const enableLink = document.getElementById('enableLink');
   const platformInput = document.getElementById('linkPlatform');
   const linkInput = document.getElementById('authorLink');
@@ -52,10 +54,12 @@ document.addEventListener('DOMContentLoaded', function () {
   function validAuthor(author) {
     return author && typeof author.id === 'string' && typeof author.name === 'string' &&
       author.name.trim().length > 0 && author.name.length <= 100 &&
+      (author.role === undefined || (typeof author.role === 'string' && author.role.length <= 100)) &&
+      (author.highlightEnabled === undefined || typeof author.highlightEnabled === 'boolean') &&
       typeof author.introduction === 'string' && author.introduction.length <= 300 &&
       typeof author.image === 'string' && (author.image === '' || /^data:image\/(png|jpeg|webp|gif);base64,[A-Za-z0-9+/]+=*$/.test(author.image)) &&
       typeof author.linkEnabled === 'boolean' && Object.hasOwn(platforms, author.platform) &&
-      typeof author.url === 'string' && (!author.linkEnabled || validUrl(author.url));
+      typeof author.url === 'string' && (!author.linkEnabled || author.highlightEnabled === false || validUrl(author.url));
   }
 
   function socialLink(platform, url) {
@@ -103,17 +107,26 @@ document.addEventListener('DOMContentLoaded', function () {
         avatar.src = author.image;
         avatar.alt = '';
       } else {
-        avatar.textContent = author.name.slice(0, 2).toUpperCase();
+        avatar.textContent = getAuthorInitials(author.name);
+        avatar.setAttribute('aria-hidden', 'true');
       }
       const name = document.createElement('strong');
       name.textContent = author.name;
-      identity.append(avatar, name);
+      const details = document.createElement('div');
+      details.appendChild(name);
+      if (author.highlightEnabled !== false && author.role) {
+        const role = document.createElement('small');
+        role.className = 'author-role';
+        role.textContent = author.role;
+        details.appendChild(role);
+      }
+      identity.append(avatar, details);
       identityCell.appendChild(identity);
       const bio = row.insertCell();
       bio.className = 'author-bio';
-      bio.textContent = author.introduction || 'No introduction';
+      bio.textContent = author.highlightEnabled === false ? 'Not enabled' : author.introduction || 'No bio';
       const linkCell = row.insertCell();
-      if (author.linkEnabled) {
+      if (author.highlightEnabled !== false && author.linkEnabled) {
         linkCell.appendChild(socialLink(author.platform, author.url));
       } else {
         linkCell.className = 'muted';
@@ -178,6 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
       next.push({
         id: id,
         name: sample.name,
+        highlightEnabled: true,
         introduction: sample.introduction,
         image: canvas.toDataURL('image/png'),
         linkEnabled: linkEnabled,
@@ -195,16 +209,26 @@ document.addEventListener('DOMContentLoaded', function () {
     imagePreview.hidden = !image;
     if (image) imagePreview.src = image;
     else imagePreview.removeAttribute('src');
-    document.getElementById('imagePlaceholder').hidden = !!image;
+    const placeholder = document.getElementById('imagePlaceholder');
+    placeholder.textContent = getAuthorInitials(nameInput.value);
+    placeholder.hidden = !!image;
+    document.getElementById('uploadImage').textContent = image ? 'Replace image' : 'Upload image';
     document.getElementById('removeImage').hidden = !image;
+  }
+
+  function updateHighlight() {
+    const fields = document.getElementById('highlightFields');
+    fields.hidden = !enableHighlight.checked;
+    fields.disabled = !enableHighlight.checked;
+    enableHighlight.setAttribute('aria-expanded', enableHighlight.checked.toString());
+    updateLink();
   }
 
   function updateLink() {
     const fields = document.getElementById('linkFields');
     fields.hidden = !enableLink.checked;
     fields.disabled = !enableLink.checked;
-    linkInput.required = enableLink.checked;
-    linkInput.setCustomValidity(linkInput.value && !validUrl(linkInput.value)
+    linkInput.setCustomValidity(enableHighlight.checked && enableLink.checked && linkInput.value && !validUrl(linkInput.value)
       ? 'Enter a valid http:// or https:// address without login credentials.' : '');
     const preview = document.getElementById('linkPreview');
     preview.replaceChildren();
@@ -227,7 +251,9 @@ document.addEventListener('DOMContentLoaded', function () {
     saveButton.disabled = false;
     document.getElementById('dialogTitle').textContent = author ? 'Edit author' : 'Add author';
     nameInput.value = author ? author.name : '';
+    roleInput.value = author ? author.role || '' : '';
     introduction.value = author ? author.introduction : '';
+    enableHighlight.checked = author ? author.highlightEnabled !== false : false;
     enableLink.checked = author ? author.linkEnabled : false;
     platformInput.value = author ? author.platform : 'linkedin';
     linkInput.value = author ? author.url : '';
@@ -235,11 +261,12 @@ document.addEventListener('DOMContentLoaded', function () {
     message('imageError', '');
     updateImage();
     updateCount();
-    updateLink();
+    updateHighlight();
     dialog.showModal();
     nameInput.focus();
   }
 
+  document.getElementById('uploadImage').addEventListener('click', function () { imageInput.click(); });
   imageInput.addEventListener('change', function () {
     const version = ++uploadVersion;
     const file = imageInput.files[0];
@@ -266,6 +293,7 @@ document.addEventListener('DOMContentLoaded', function () {
       decoded.onload = function () {
         if (version !== uploadVersion) return;
         image = reader.result;
+        imageInput.value = '';
         saveButton.disabled = false;
         updateImage();
       };
@@ -289,11 +317,15 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById(id).addEventListener('click', function () { dialog.close(); });
   });
   dialog.addEventListener('close', function () { uploadVersion++; });
+  enableHighlight.addEventListener('change', updateHighlight);
   enableLink.addEventListener('change', updateLink);
   platformInput.addEventListener('change', updateLink);
   linkInput.addEventListener('input', updateLink);
   introduction.addEventListener('input', updateCount);
-  nameInput.addEventListener('input', function () { nameInput.setCustomValidity(''); });
+  nameInput.addEventListener('input', function () {
+    nameInput.setCustomValidity('');
+    updateImage();
+  });
   form.addEventListener('submit', function (event) {
     event.preventDefault();
     if (saveButton.disabled) return;
@@ -303,9 +335,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const author = {
       id: editingId || crypto.randomUUID(),
       name: nameInput.value.trim(),
+      role: roleInput.value.trim(),
+      highlightEnabled: enableHighlight.checked,
       introduction: introduction.value.trim(),
       image: image,
-      linkEnabled: enableLink.checked,
+      linkEnabled: enableLink.checked && linkInput.value.trim().length > 0,
       platform: platformInput.value,
       url: linkInput.value.trim()
     };

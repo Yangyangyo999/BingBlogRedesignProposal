@@ -18,6 +18,7 @@ th { padding:14px 24px; background:#fafcfd; color:var(--muted); font-size:12px; 
 td { padding:20px 24px; border-top:1px solid var(--line); font-size:14px; }
 .author-identity { display:flex; align-items:center; gap:13px; min-width:170px; }
 .author-identity strong { overflow-wrap:anywhere; }
+.author-role { display:block; margin-top:5px; color:var(--muted); font-size:12px; overflow-wrap:anywhere; }
 .profile-avatar { width:64px; height:64px; flex-shrink:0; border:1px solid var(--line); border-radius:50%; object-fit:cover; display:inline-grid; place-items:center; background:var(--blue-soft); color:var(--blue); font-weight:700; font-size:21px; }
 td .profile-avatar { width:44px; height:44px; font-size:15px; }
 .author-bio { min-width:200px; max-width:360px; color:var(--muted); line-height:1.6; white-space:pre-wrap; overflow-wrap:anywhere; }
@@ -35,6 +36,12 @@ body:has(dialog[open]) { overflow:hidden; }
 .dialog-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:24px 28px; border-bottom:1px solid var(--line); }
 .dialog-heading h2 { margin:0; font-size:24px; }
 .dialog-body { padding:24px 28px; }
+.profile-section + .profile-section { margin-top:28px; padding-top:24px; border-top:1px solid var(--line); }
+.profile-section h3 { margin:0 0 18px; font-size:18px; }
+.profile-section-heading { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.profile-section-heading h3 { margin:0; }
+.highlight-fields { min-width:0; margin:20px 0 0; padding:0; border:0; background:none; }
+.highlight-fields .enable-control { display:inline-flex; margin-bottom:0; }
 .dialog-body .field-group + .field-group { margin-top:22px; padding-top:22px; }
 .image-upload { display:flex; align-items:center; gap:18px; }
 .image-upload > div { min-width:0; }
@@ -53,5 +60,6 @@ button:disabled { opacity:.55; cursor:not-allowed; transform:none; }
   .authors-page .page-heading { flex-direction:column; gap:18px; }
   .dialog-heading,.dialog-body,.dialog-footer { padding:20px; }
   .image-upload { align-items:flex-start; gap:12px; }
+  .profile-section-heading { flex-wrap:wrap; }
   th,td { padding:14px 18px; }
 }
