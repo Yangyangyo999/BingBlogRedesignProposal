@@ -30,7 +30,7 @@ td .profile-avatar { width:44px; height:44px; font-size:15px; }
 .text-button:hover { text-decoration:underline; }
 .delete-button { color:#b23a3a; }
 .muted { color:var(--muted); font-size:13px; }
-dialog { width:calc(100% - 32px); max-width:600px; max-height:90dvh; padding:0; border:1px solid var(--line); border-radius:16px; background:#fff; color:var(--ink); box-shadow:0 24px 80px #17203333; }
+dialog { width:calc(100% - 32px); max-width:720px; max-height:90dvh; padding:0; border:1px solid var(--line); border-radius:16px; background:#fff; color:var(--ink); box-shadow:0 24px 80px #17203333; }
 dialog::backdrop { background:#17203380; backdrop-filter:blur(3px); }
 body:has(dialog[open]) { overflow:hidden; }
 .dialog-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:24px 28px; border-bottom:1px solid var(--line); }
