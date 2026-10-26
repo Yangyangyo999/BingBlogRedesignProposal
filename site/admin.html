@@ -170,7 +170,7 @@
               <div class="section-control">
                 <div>
                   <h2>Author association</h2>
-                  <p>Select up to three authors in display order.</p>
+                  <p id="authorHelp">Select up to five authors. Browse the first five alphabetically, search all authors, or choose See all.</p>
                 </div>
                 <label class="enable-control">
                   <input type="checkbox" checked data-toggle-target="authorFields">
@@ -178,28 +178,17 @@
                   Enable
                 </label>
               </div>
-              <div class="author-select-list" id="authorFields">
-                <label class="author-option">
-                  <input type="checkbox" name="authors" value="Microsoft Webmaster Team">
-                  <span class="author-avatar avatar-blue">MW</span>
-                  <span><strong>Microsoft Webmaster Team</strong><small>Webmaster Product Team</small></span>
-                </label>
-                <label class="author-option">
-                  <input type="checkbox" name="authors" value="Bing Search Team">
-                  <span class="author-avatar avatar-purple">BS</span>
-                  <span><strong>Bing Search Team</strong><small>Search Experience Team</small></span>
-                </label>
-                <label class="author-option">
-                  <input type="checkbox" name="authors" value="Search Quality Insights">
-                  <span class="author-avatar avatar-green">SQ</span>
-                  <span><strong>Search Quality Insights</strong><small>Search Quality Research Team</small></span>
-                </label>
-                <label class="author-option">
-                  <input type="checkbox" name="authors" value="Bing Maps Team">
-                  <span class="author-avatar avatar-orange">BM</span>
-                  <span><strong>Bing Maps Team</strong><small>Maps and Local Search Team</small></span>
-                </label>
+              <p id="authorLoadError" role="alert" hidden></p>
+              <div id="authorFields" role="group" aria-label="Available authors" aria-describedby="authorHelp">
+                <div class="author-search">
+                  <label for="authorSearch">Search authors</label>
+                  <input id="authorSearch" type="search" placeholder="Search individual and team authors" aria-controls="authorList">
+                </div>
+                <p class="field-help" id="authorResults" role="status" aria-live="polite"></p>
+                <div class="author-select-list" id="authorList"></div>
+                <button class="button button-secondary author-see-all" id="seeAllAuthors" type="button" aria-controls="authorList" aria-expanded="false" hidden>See all</button>
               </div>
+              <p class="field-help">Manage individual and team profiles in <a href="admin-authors.html">Author Management</a>.</p>
             </div>
           </div>
         </section>

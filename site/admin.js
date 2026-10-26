@@ -169,15 +169,117 @@ document.addEventListener('DOMContentLoaded', function () {
   addFaq();
   addFaq();
 
-  document.querySelectorAll('[name="authors"]').forEach(function (author) {
-    author.addEventListener('change', function () {
-      const selected = document.querySelectorAll('[name="authors"]:checked');
-      if (selected.length > 3) {
-        author.checked = false;
-        showToast('You can select up to three authors.', 'error');
-      }
+  const authorFields = document.getElementById('authorFields');
+  const authorList = document.getElementById('authorList');
+  const authorSearch = document.getElementById('authorSearch');
+  const seeAllAuthors = document.getElementById('seeAllAuthors');
+  let showAllAuthors = false;
+  const authorStorageKey = 'bingBlogsAdminAuthors';
+  const defaultAuthors = [
+    { name: 'Alex Morgan', introduction: 'Product storyteller exploring AI-powered search.' },
+    { name: 'Bing Maps Team', introduction: 'Maps and Local Search Team' },
+    { name: 'Bing Search Team', introduction: 'Search Experience Team' },
+    { name: 'Jamie Chen', introduction: 'Engineer sharing ideas on search relevance and web technology.' },
+    { name: 'Microsoft Webmaster Team', introduction: 'Webmaster Product Team' },
+    { name: 'Priya Shah', introduction: 'Researcher focused on trustworthy AI and search quality.' },
+    { name: 'Search Quality Insights', introduction: 'Search Quality Research Team' }
+  ];
+
+  function filterAuthors() {
+    const query = authorSearch.value.trim().toLocaleLowerCase('en');
+    const options = Array.from(authorList.querySelectorAll('.author-option'));
+    let matches = 0;
+    options.forEach(function (option) {
+      const matchesQuery = option.querySelector('input').value.toLocaleLowerCase('en').includes(query);
+      option.hidden = !matchesQuery || (!showAllAuthors && matches >= 5);
+      if (matchesQuery) matches++;
     });
+    seeAllAuthors.hidden = matches <= 5;
+    seeAllAuthors.textContent = showAllAuthors ? 'Show less' : 'See all';
+    seeAllAuthors.setAttribute('aria-expanded', showAllAuthors.toString());
+    document.getElementById('authorResults').textContent = options.length === 0
+      ? 'No authors yet. Add individual or team profiles in Author Management.'
+      : matches === 0 ? 'No authors match your search.'
+        : `Showing ${showAllAuthors ? matches : Math.min(matches, 5)} of ${matches} authors.`;
+  }
+
+  function renderAuthors() {
+    const errorMessage = document.getElementById('authorLoadError');
+    let authors;
+    try {
+      const stored = localStorage.getItem(authorStorageKey);
+      authors = stored === null ? defaultAuthors : JSON.parse(stored);
+      if (!Array.isArray(authors) || !authors.every(function (author) {
+        return author && typeof author.name === 'string' && author.name.trim().length > 0 &&
+          typeof author.introduction === 'string' &&
+          (author.image === undefined || author.image === '' ||
+            (typeof author.image === 'string' && /^data:image\/(png|jpeg|webp|gif);base64,[A-Za-z0-9+/]+=*$/.test(author.image)));
+      })) {
+        throw new Error('Invalid saved author data');
+      }
+    } catch (error) {
+      errorMessage.textContent = 'Authors could not be loaded. Check browser storage permissions or repair the saved data in Author Management, then reload.';
+      errorMessage.hidden = false;
+      return;
+    }
+    errorMessage.hidden = true;
+    const selected = new Set(Array.from(authorFields.querySelectorAll(':checked')).map(function (item) { return item.value; }));
+    const enabled = document.querySelector('[data-toggle-target="authorFields"]').checked;
+    authorList.replaceChildren();
+    authors.slice().sort(function (a, b) {
+      return a.name.localeCompare(b.name, 'en', { sensitivity: 'base' });
+    }).forEach(function (author) {
+      const option = document.createElement('label');
+      option.className = 'author-option';
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.name = 'authors';
+      checkbox.value = author.name;
+      checkbox.checked = selected.has(author.name);
+      checkbox.disabled = !enabled;
+      const avatar = document.createElement(author.image ? 'img' : 'span');
+      avatar.className = 'author-avatar avatar-blue';
+      if (author.image) {
+        avatar.src = author.image;
+        avatar.alt = '';
+      } else {
+        avatar.textContent = author.name.split(/\s+/).map(function (part) { return part[0]; }).join('').slice(0, 2).toUpperCase();
+        avatar.setAttribute('aria-hidden', 'true');
+      }
+      const details = document.createElement('span');
+      const name = document.createElement('strong');
+      name.textContent = author.name;
+      const introduction = document.createElement('small');
+      introduction.textContent = author.introduction;
+      details.append(name, introduction);
+      option.append(checkbox, avatar, details);
+      authorList.appendChild(option);
+    });
+    filterAuthors();
+  }
+
+  authorSearch.addEventListener('input', function () {
+    showAllAuthors = false;
+    filterAuthors();
   });
+  authorSearch.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') event.preventDefault();
+  });
+  seeAllAuthors.addEventListener('click', function () {
+    showAllAuthors = !showAllAuthors;
+    filterAuthors();
+  });
+  authorFields.addEventListener('change', function (event) {
+    if (event.target.matches('[name="authors"]') && authorFields.querySelectorAll(':checked').length > 5) {
+      event.target.checked = false;
+      showToast('You can select up to five authors.', 'error');
+    }
+  });
+  window.addEventListener('storage', function (event) {
+    if (event.key === authorStorageKey || event.key === null) renderAuthors();
+  });
+  window.addEventListener('focus', renderAuthors);
+  renderAuthors();
 
   function collectDraft() {
     return {
@@ -195,7 +297,7 @@ document.addEventListener('DOMContentLoaded', function () {
           answer: item.querySelector('[name="faqAnswer"]').value
         };
       }),
-      authors: Array.from(document.querySelectorAll('[name="authors"]:checked')).map(function (item) { return item.value; })
+      authors: Array.from(document.querySelectorAll('[name="authors"]:checked:not(:disabled)')).map(function (item) { return item.value; })
     };
   }
 

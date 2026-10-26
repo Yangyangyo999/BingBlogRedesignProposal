@@ -217,17 +217,24 @@ input::placeholder,textarea::placeholder { color:#9aa7b5; }
 .faq-editor-fields input,.faq-editor-fields textarea { margin-top:7px; }
 .button-add { margin-top:14px; border-color:#b8c8d7; color:var(--blue); }
 .button-add span { font-size:20px; line-height:1; }
-.author-select-list { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.author-select-list { display:grid; grid-template-columns:1fr; gap:8px; }
+.author-search { margin-bottom:12px; }
+.author-search label { display:block; margin-bottom:7px; font-size:13px; font-weight:750; }
+.author-see-all { margin-top:12px; }
+.author-option[hidden],.author-see-all[hidden] { display:none; }
 .author-option { display:grid; grid-template-columns:auto 42px 1fr; align-items:center; gap:12px; padding:13px; border:1px solid var(--line); border-radius:10px; cursor:pointer; }
 .author-option:has(input:checked) { border-color:#7eafd0; background:#f3f9fd; }
 .author-option input { width:17px; height:17px; accent-color:var(--blue); }
-.author-avatar { width:42px; height:42px; display:grid; place-items:center; border-radius:50%; color:#fff; font-size:12px; font-weight:800; }
+.author-avatar { width:42px; height:42px; display:grid; place-items:center; border-radius:50%; color:#fff; font-size:12px; font-weight:800; object-fit:cover; }
+#authorLoadError { color:#b23a3a; font-size:13px; }
 .avatar-blue { background:#3679ab; }
 .avatar-purple { background:#7658a8; }
 .avatar-green { background:#3c886a; }
 .avatar-orange { background:#bd7042; }
 .author-option strong,.author-option small { display:block; }
 .author-option strong { margin-bottom:4px; font-size:13px; }
+.author-option strong,.author-option small { overflow-wrap:anywhere; }
+.author-option > span:last-child { min-width:0; }
 .author-option small { color:var(--muted); font-size:11px; }
 
 .slug-field { display:flex; align-items:center; overflow:hidden; border:1px solid #d5dee7; border-radius:8px; background:#f2f4f7; color:#7c8998; }
