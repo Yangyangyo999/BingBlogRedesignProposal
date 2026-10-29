@@ -413,6 +413,19 @@ html,body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe
   background:#0a66c2;
 }
 .linkedin-link svg { width:24px; height:24px; fill:#fff; }
+.article-feedback { margin:0 0 40px; padding:28px; border:1px solid #dbe8f0; border-radius:18px; background:#f8fbfd; }
+.article-feedback h2 { margin:0 0 10px; color:#0f172a; font-size:24px; }
+.article-feedback > p { color:#526174; font-size:15px; line-height:1.6; }
+.feedback-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:20px; }
+.feedback-actions button { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-width:100px; min-height:44px; padding:10px 20px; border:1px solid #b8cddb; border-radius:8px; background:#fff; color:#1f6f9b; font:inherit; font-weight:700; cursor:pointer; }
+.feedback-actions svg { width:20px; height:20px; flex-shrink:0; }
+.feedback-actions button:hover:not(:disabled) { background:#eaf4fa; border-color:#1f6f9b; }
+.feedback-actions button:focus-visible { outline:3px solid #1f6f9b; outline-offset:3px; }
+.feedback-actions button[aria-pressed="true"] { border-color:#1f6f9b; background:#1f6f9b; color:#fff; }
+.feedback-actions button:disabled { cursor:default; }
+.feedback-actions button:disabled[aria-pressed="false"] { opacity:.55; }
+.article-feedback .feedback-result:not(:empty) { margin-top:16px; color:#1f6f9b; font-weight:600; }
+.article-feedback .feedback-error { margin-top:16px; color:#b23a3a; }
 .related-articles { margin-top:10px; }
 .related-articles h3 { font-size:24px; margin-bottom:18px; }
 .related-articles .related-grid { display:grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap:18px; }

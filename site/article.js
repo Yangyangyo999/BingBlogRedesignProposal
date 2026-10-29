@@ -175,7 +175,8 @@ function enhanceSecondaryArticle() {
   articleContent.id = 'article-body';
   const relatedArticles = articlePage.querySelector('.related-articles');
   relatedArticles.id = 'related-articles';
-  relatedArticles.insertAdjacentHTML('beforebegin', `
+  const articleEnd = articlePage.querySelector('.article-feedback') || relatedArticles;
+  articleEnd.insertAdjacentHTML('beforebegin', `
     <section class="article-faq" id="faq" aria-labelledby="faq-title">
       <h2 id="faq-title">Frequent Asked Questions</h2>
       <div class="faq-list">
@@ -214,6 +215,47 @@ function enhanceSecondaryArticle() {
 
 document.addEventListener('DOMContentLoaded', function () {
   enhanceSecondaryArticle();
+
+  const feedback = document.querySelector('.article-feedback');
+  if (feedback) {
+    const storageKey = `bingBlogsArticleFeedback:${window.location.pathname}`;
+    const buttons = Array.from(feedback.querySelectorAll('[data-feedback]'));
+    const result = feedback.querySelector('.feedback-result');
+    const errorMessage = feedback.querySelector('.feedback-error');
+
+    function showFeedback(value) {
+      buttons.forEach(function (button) {
+        button.setAttribute('aria-pressed', (button.dataset.feedback === value).toString());
+        button.disabled = true;
+      });
+      result.textContent = `Thanks for your feedback. You selected ${value === 'like' ? 'Like' : 'Unlike'}.`;
+      errorMessage.hidden = true;
+    }
+
+    try {
+      const saved = sessionStorage.getItem(storageKey);
+      if (saved !== null) {
+        if (saved !== 'like' && saved !== 'unlike') throw new Error('Invalid article feedback');
+        showFeedback(saved);
+      }
+    } catch (error) {
+      errorMessage.textContent = 'Your previous feedback could not be loaded. Allow browser session storage and try again.';
+      errorMessage.hidden = false;
+    }
+
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        try {
+          sessionStorage.setItem(storageKey, button.dataset.feedback);
+        } catch (error) {
+          errorMessage.textContent = 'Your feedback could not be saved for this session. Allow browser session storage and try again.';
+          errorMessage.hidden = false;
+          return;
+        }
+        showFeedback(button.dataset.feedback);
+      });
+    });
+  }
 
   const articlePage = document.querySelector('.article-page');
   const progress = document.querySelector('.reading-progress');
