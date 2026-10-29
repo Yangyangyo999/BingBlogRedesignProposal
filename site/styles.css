@@ -421,6 +421,48 @@ html,body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe
 .related-card .related-body { padding:16px; }
 .related-card .related-body h4 { margin:0 0 10px; font-size:18px; }
 .related-card .related-body p { margin:0; color:#6b7280; font-size:14px; line-height:1.6; }
+.article-layout {
+  display:grid;
+  grid-template-columns:180px minmax(0,980px) 240px;
+  gap:24px;
+  max-width:1496px;
+  margin:0 auto;
+  padding:0 24px;
+  align-items:start;
+}
+.article-layout .article-page { width:100%; min-width:0; }
+.article-layout .article-section-nav {
+  position:sticky;
+  top:32px;
+  right:auto;
+  width:auto;
+  max-height:calc(100dvh - 64px);
+  margin-top:80px;
+  padding:12px 18px 12px 0;
+  border-left:0;
+  border-right:1px solid #dbe4ec;
+}
+.article-promotion {
+  position:sticky;
+  top:32px;
+  margin-top:80px;
+  padding:24px;
+  border:1px solid #dbe8f0;
+  border-radius:18px;
+  background:linear-gradient(145deg,#f0f8fc,#e8eefb);
+  color:#334155;
+}
+.article-promotion h2 { margin:0 0 14px; color:#0f172a; font-size:26px; line-height:1.2; letter-spacing:-.02em; }
+.article-promotion p { font-size:15px; line-height:1.65; }
+.promotion-button { display:inline-flex; align-items:center; justify-content:center; min-height:44px; margin-top:24px; padding:10px 20px; border-radius:8px; background:#1f6f9b; color:#fff; font-size:14px; font-weight:700; text-decoration:none; }
+.promotion-button:hover { background:#185879; }
+.promotion-button:focus-visible { outline:3px solid #1f6f9b; outline-offset:4px; }
+@media (max-width:1240px) {
+  .article-layout { display:block; max-width:980px; padding:24px 20px; }
+  .article-layout .article-page { padding:0; }
+  .article-layout .article-section-nav { position:static; max-height:none; margin:0 0 24px; padding:16px 18px; border:1px solid #e2e8f0; }
+  .article-promotion { position:static; margin:32px 0 0; }
+}
 @media (max-width:900px) {
   .related-articles .related-grid { grid-template-columns: 1fr 1fr; }
 }
@@ -441,6 +483,7 @@ html,body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe
   .article-section-nav a { padding:3px 0; }
 }
 @media (max-width:700px) {
+  .article-layout { padding:24px 16px; }
   .article-page { padding:24px 16px; }
   .article-page .article-title-group { padding:22px 18px 18px; border-radius:16px; }
   .article-page h1 { font-size:34px; }

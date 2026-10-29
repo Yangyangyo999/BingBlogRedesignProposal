@@ -206,6 +206,10 @@ function enhanceSecondaryArticle() {
       </div>
     </section>` : ''}
   `);
+  const layout = articlePage.closest('.article-layout');
+  if (layout) {
+    layout.prepend(articlePage.querySelector('.article-section-nav'));
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
