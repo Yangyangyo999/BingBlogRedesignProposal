@@ -293,6 +293,13 @@ document.addEventListener('DOMContentLoaded', function () {
       slug: slugInput.value,
       categories: Array.from(document.querySelectorAll('[name="categories"]:checked')).map(function (item) { return item.value; }),
       tags: tags.slice(),
+      promotionalCard: {
+        enabled: document.getElementById('promotionalCardEnabled').checked,
+        title: document.getElementById('promotionalCardTitle').value.trim(),
+        description: document.getElementById('promotionalCardDescription').value.trim(),
+        ctaText: document.getElementById('promotionalCardCtaText').value.trim(),
+        ctaLink: document.getElementById('promotionalCardCtaLink').value.trim()
+      },
       takeaways: document.querySelector('[name="takeaways"]').disabled ? '' : document.querySelector('[name="takeaways"]').value,
       faqs: Array.from(faqList.children).map(function (item) {
         return {
@@ -312,13 +319,13 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('publishButton').addEventListener('click', function () {
     const draft = collectDraft();
     if (!draft.title) {
-      document.querySelector('[data-tab="main-body"]').click();
+      document.querySelector('[data-tab="basic"]').click();
       titleInput.focus();
       showToast('Add a title before publishing.', 'error');
       return;
     }
     if (!draft.content.trim() && !draft.htmlContent.trim()) {
-      document.querySelector('[data-tab="main-body"]').click();
+      document.querySelector('[data-tab="basic"]').click();
       document.getElementById('rich-text').focus();
       showToast('Add article content before publishing.', 'error');
       return;

@@ -41,13 +41,12 @@
       </div>
 
       <nav class="editor-tabs" aria-label="Article editor sections">
-        <button class="editor-tab active" type="button" data-tab="main-body" aria-selected="true">Main Body</button>
-        <button class="editor-tab" type="button" data-tab="rich-section" aria-selected="false">Rich Section</button>
-        <button class="editor-tab" type="button" data-tab="other-information" aria-selected="false">Other Information</button>
+        <button class="editor-tab active" type="button" data-tab="basic" aria-selected="true">Basic</button>
+        <button class="editor-tab" type="button" data-tab="optional" aria-selected="false">Optional</button>
       </nav>
 
       <form id="articleForm">
-        <section class="tab-panel active" id="main-body" aria-label="Main Body">
+        <section class="tab-panel active" id="basic" aria-label="Basic">
           <div class="form-card">
             <div class="field-group">
               <label for="articleTitle">Title <span class="required">*</span></label>
@@ -123,10 +122,19 @@
                 <span id="uploadHelp">PNG, JPG, or WebP up to 10 MB</span>
               </button>
             </div>
+
+            <div class="field-group">
+              <label for="urlSlug">URL slug</label>
+              <div class="slug-field">
+                <span>bing.com/blogs/</span>
+                <input id="urlSlug" name="slug" type="text" value="" placeholder="article-title" readonly aria-readonly="true">
+              </div>
+              <p class="field-help">Automatically generated from the article title and cannot be edited.</p>
+            </div>
           </div>
         </section>
 
-        <section class="tab-panel" id="rich-section" aria-label="Rich Section" hidden>
+        <section class="tab-panel" id="optional" aria-label="Optional" hidden>
           <div class="form-card">
             <div class="optional-section">
               <div class="section-control">
@@ -190,18 +198,39 @@
               </div>
               <p class="field-help">Manage individual and team profiles in <a href="admin-authors.html">Author Management</a>.</p>
             </div>
-          </div>
-        </section>
 
-        <section class="tab-panel" id="other-information" aria-label="Other Information" hidden>
-          <div class="form-card">
-            <div class="field-group">
-              <label for="urlSlug">URL slug</label>
-              <div class="slug-field">
-                <span>bing.com/blogs/</span>
-                <input id="urlSlug" name="slug" type="text" value="" placeholder="article-title" readonly aria-readonly="true">
+            <div class="optional-section">
+              <div class="section-control">
+                <div>
+                  <h2>Promotional Card</h2>
+                  <p>Enable a promotional card with a title, description, and call to action.</p>
+                </div>
+                <label class="enable-control">
+                  <input id="promotionalCardEnabled" name="promotionalCardEnabled" type="checkbox" data-toggle-target="promotionalCardFields">
+                  <span class="switch" aria-hidden="true"></span>
+                  Enable
+                </label>
               </div>
-              <p class="field-help">Automatically generated from the article title and cannot be edited.</p>
+              <div id="promotionalCardFields" class="is-disabled">
+                <div class="field-group">
+                  <label for="promotionalCardTitle">Title</label>
+                  <input id="promotionalCardTitle" name="promotionalCardTitle" type="text" placeholder="Enter a promotional card title" disabled>
+                </div>
+                <div class="field-group">
+                  <label for="promotionalCardDescription">Description</label>
+                  <textarea id="promotionalCardDescription" name="promotionalCardDescription" rows="3" placeholder="Describe the promotion" disabled></textarea>
+                </div>
+                <div class="field-grid">
+                  <div class="field-group">
+                    <label for="promotionalCardCtaText">CTA Text</label>
+                    <input id="promotionalCardCtaText" name="promotionalCardCtaText" type="text" placeholder="Learn more" disabled>
+                  </div>
+                  <div class="field-group">
+                    <label for="promotionalCardCtaLink">CTA Link</label>
+                    <input id="promotionalCardCtaLink" name="promotionalCardCtaLink" type="url" placeholder="https://example.com" disabled>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
