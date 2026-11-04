@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function () {
         button.setAttribute('aria-pressed', (button.dataset.feedback === value).toString());
         button.disabled = true;
       });
-      result.textContent = `Thanks for your feedback. You selected ${value === 'like' ? 'Like' : 'Unlike'}.`;
+      result.textContent = `Thanks for your feedback. You selected ${value === 'like' ? 'Helpful' : 'Unhelpful'}.`;
       errorMessage.hidden = true;
     }
 
