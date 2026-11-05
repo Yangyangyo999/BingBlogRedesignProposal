@@ -228,14 +228,15 @@ document.addEventListener('DOMContentLoaded', function () {
         button.setAttribute('aria-pressed', (button.dataset.feedback === value).toString());
         button.disabled = true;
       });
-      result.textContent = `Thanks for your feedback. You selected ${value === 'like' ? 'Helpful' : 'Unhelpful'}.`;
+      const selectedButton = buttons.find(function (button) { return button.dataset.feedback === value; });
+      result.textContent = `Thanks for your feedback. You selected ${selectedButton.textContent.trim()}.`;
       errorMessage.hidden = true;
     }
 
     try {
       const saved = sessionStorage.getItem(storageKey);
       if (saved !== null) {
-        if (saved !== 'like' && saved !== 'unlike') throw new Error('Invalid article feedback');
+        if (!buttons.some(function (button) { return button.dataset.feedback === saved; })) throw new Error('Invalid article feedback');
         showFeedback(saved);
       }
     } catch (error) {
