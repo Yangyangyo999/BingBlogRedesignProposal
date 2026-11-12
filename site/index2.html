@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Discover the latest Bing stories, product updates, and ideas from Microsoft.">
+    <title>Bing Blog - Stories, updates &amp; ideas</title>
+    <link rel="stylesheet" href="index2.css">
+    <script src="index2.js" defer></script>
+  </head>
+  <body>
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></symbol>
+      <symbol id="icon-filter" viewBox="0 0 24 24"><path d="M3 7h8m4 0h6M3 17h3m4 0h11"/><circle cx="13" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></symbol>
+      <symbol id="icon-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="3" y="15" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/></symbol>
+      <symbol id="icon-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+      <symbol id="icon-rss" viewBox="0 0 24 24"><circle cx="5" cy="19" r="1" fill="currentColor"/><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/></symbol>
+      <symbol id="icon-facebook" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.62.77-1.62 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12Z"/></symbol>
+      <symbol id="icon-youtube" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M22 8s-.2-2-1-2.8C20 4.2 18.8 4.2 18.3 4.1 15.5 3.9 12 4 12 4s-3.5-.1-6.3.1C5.2 4.2 4 4.2 3 5.2 2.2 6 2 8 2 8s-.2 2.3-.2 4v.8c0 1.7.2 3.4.2 3.4s.2 2 1 2.8c1 1 2.4 1 3 1.1 2.2.2 6 .2 6 .2s3.5 0 6.3-.2c.5-.1 1.7-.1 2.7-1.1.8-.8 1-2.8 1-2.8s.2-1.7.2-3.4V12c0-1.7-.2-4-.2-4ZM10 15.5v-7l6 3.5-6 3.5Z"/></symbol>
+      <symbol id="icon-x" viewBox="0 0 24 24"><path d="M4 3h4l12 18h-4L4 3Zm16 0L4 21"/></symbol>
+      <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".7" fill="currentColor"/></symbol>
+    </svg>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header page-width">
+      <a class="brand" href="index2.html" aria-label="Microsoft Bing Blog home">
+        <span class="microsoft-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="microsoft-name">Microsoft</span>
+        <span class="brand-divider" aria-hidden="true">|</span>
+        <span>Bing Blog</span>
+      </a>
+      <form class="search" role="search">
+        <svg class="icon" aria-hidden="true"><use href="#icon-search"/></svg>
+        <input id="blog-search" type="search" aria-label="Search stories, updates and ideas" placeholder="Search stories, updates &amp; ideas" autocomplete="off">
+      </form>
+      <nav class="social-links" aria-label="Follow Bing">
+        <a href="https://www.facebook.com/Bing/" aria-label="Bing on Facebook" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-facebook"/></svg></a>
+        <a href="https://www.youtube.com/Bing" aria-label="Bing on YouTube" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-youtube"/></svg></a>
+        <a href="https://x.com/bing" aria-label="Bing on X" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-x"/></svg></a>
+        <a href="https://www.instagram.com/bing/" aria-label="Bing on Instagram" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-instagram"/></svg></a>
+      </nav>
+      <a class="subscribe" href="https://blogs.bing.com/feed/"><svg class="icon" aria-hidden="true"><use href="#icon-rss"/></svg>Subscribe</a>
+    </header>
+
+    <main id="main" class="page-width">
+      <h1 class="visually-hidden">Bing Blog: stories, updates &amp; ideas</h1>
+      <div class="toolbar" aria-label="Blog display options">
+        <label class="select-control">
+          <svg class="icon" aria-hidden="true"><use href="#icon-filter"/></svg>
+          <span class="visually-hidden">Filter by category</span>
+          <select id="category"><option value="all">All</option><option value="search">Search</option><option value="rewards">Rewards</option><option value="webiq">Web IQ</option><option value="webmaster">Webmaster</option></select>
+        </label>
+        <label class="select-control">
+          <svg class="icon" aria-hidden="true"><use href="#icon-grid"/></svg>
+          <span class="visually-hidden">Article layout</span>
+          <select id="layout"><option value="grid">Grid</option><option value="list">List</option></select>
+        </label>
+        <p id="results-status" class="visually-hidden" role="status" aria-live="polite"></p>
+      </div>
+
+      <section class="stories" aria-label="Latest stories">
+        <article class="featured story" data-category="search">
+          <a class="featured-image" href="https://blogs.bing.com/search/2026/11/your-choice-turn-ai-answers-on-or-off-in-bing/" aria-label="Read Your choice: Turn AI answers on or off in Bing">
+            <img src="https://blogs.bing.com/api/media/assets/uploads/2026/11/521be85e-3144-4a53-9cd8-4a58d298ec35-bing-blog-preview-660x360.png" alt="Bing preview settings with an Enable AI Features toggle" width="660" height="360" fetchpriority="high">
+          </a>
+          <div class="featured-body">
+            <time datetime="2026-11-11">November 11, 2026</time>
+            <h2><a href="https://blogs.bing.com/search/2026/11/your-choice-turn-ai-answers-on-or-off-in-bing/">Your choice: Turn AI answers on or off in Bing</a></h2>
+            <p>When it comes to AI, we believe Bing users should have a choice in how they search. That’s why Bing offers both AI-powered and traditional search experiences, including a browser extension that lets people...</p>
+            <a class="read-more" href="https://blogs.bing.com/search/2026/11/your-choice-turn-ai-answers-on-or-off-in-bing/">Read more <svg class="icon" aria-hidden="true"><use href="#icon-chevron"/></svg></a>
+          </div>
+        </article>
+
+        <div class="article-grid">
+          <article class="story-card story" data-category="rewards">
+            <a class="card-image" href="https://blogs.bing.com/rewards/2026/11/the-total-prize-drop-is-here-and-millions-are-up-for-grabs-2/" aria-label="Read The Total Prize Drop is here, and millions are up for grabs">
+              <img src="https://blogs.bing.com/api/media/assets/uploads/2026/11/0596f818-a63a-40da-b0bf-9c8067597322-bing-blog_01.png" alt="Microsoft Rewards $2,000,000 Total Prize Drop" width="660" height="360">
+            </a>
+            <div class="card-body">
+              <h2><a href="https://blogs.bing.com/rewards/2026/11/the-total-prize-drop-is-here-and-millions-are-up-for-grabs-2/">The Total Prize Drop is here, and millions are up for grabs</a></h2>
+              <time datetime="2026-11-09">November 9, 2026</time>
+            </div>
+          </article>
+          <article class="story-card story" data-category="search">
+            <a class="card-image" href="https://blogs.bing.com/search/2026/10/your-content-your-choice-clearer-preferences-for-training-and-grounding/" aria-label="Read Your content, your choice: clearer preferences for training and grounding">
+              <img src="https://blogs.bing.com/api/media/assets/uploads/2026/10/531a56e0-1a18-46af-b4f0-55fa20a35079-Meta-tag-blog-image_-660-by-360-pixels.png" alt="Illustration of publisher content controls and search results" width="660" height="360">
+            </a>
+            <div class="card-body">
+              <h2><a href="https://blogs.bing.com/search/2026/10/your-content-your-choice-clearer-preferences-for-training-and-grounding/">Your content, your choice: clearer preferences for training and grounding</a></h2>
+              <time datetime="2026-10-30">October 30, 2026</time>
+            </div>
+          </article>
+          <article class="story-card story" data-category="rewards">
+            <a class="card-image" href="https://blogs.bing.com/rewards/2026/10/real-people-real-winners-your-chance-could-be-next/" aria-label="Read Real people. Real winners. Your chance could be next.">
+              <img src="https://blogs.bing.com/api/media/assets/uploads/2026/10/d31fc52d-b6f0-4dd2-bf51-c275d4083060-bb-camille.png" alt="Microsoft Rewards winner Camille enjoying a sunny day by the water" width="660" height="360">
+            </a>
+            <div class="card-body">
+              <h2><a href="https://blogs.bing.com/rewards/2026/10/real-people-real-winners-your-chance-could-be-next/">Real people. Real winners. Your chance could be next.</a></h2>
+              <time datetime="2026-10-16">October 16, 2026</time>
+            </div>
+          </article>
+        </div>
+      </section>
+      <div id="empty-state" class="empty-state" hidden>
+          <h2>No stories found</h2>
+          <p>Try a different search or explore all our latest stories.</p>
+          <button id="reset-filters" type="button">View all stories</button>
+      </div>
+      <a class="explore-more" href="https://blogs.bing.com/">Explore more</a>
+
+      <section class="topic-section stories" aria-labelledby="ai-topic">
+        <div class="topic-header">
+          <h2 id="ai-topic">AI &amp; Intelligence</h2>
+        </div>
+        <div class="article-grid topic-grid">
+          <article class="story-card story" data-category="search">
+            <a class="card-image" href="https://blogs.bing.com/search/2026/11/your-choice-turn-ai-answers-on-or-off-in-bing/" aria-label="Read Your choice: Turn AI answers on or off in Bing">
+              <img src="https://blogs.bing.com/api/media/assets/uploads/2026/11/521be85e-3144-4a53-9cd8-4a58d298ec35-bing-blog-preview-660x360.png" alt="Bing preview settings with an Enable AI Features toggle" width="660" height="360" loading="lazy">
+            </a>
+            <div class="card-body">
+              <h3><a href="https://blogs.bing.com/search/2026/11/your-choice-turn-ai-answers-on-or-off-in-bing/">Your choice: Turn AI answers on or off in Bing</a></h3>
+              <time datetime="2026-11-11">November 11, 2026</time>
+            </div>
+          </article>
+          <article class="story-card story" data-category="webiq">
+            <a class="card-image" href="https://blogs.bing.com/webiq/2026/6/announcing-microsoft-web-iq/" aria-label="Read Announcing Microsoft Web IQ">
+              <img src="https://blogs.bing.com/api/media/assets/files/ea/eab26f32-e0b1-40d4-b64a-8c4f971f3c8a.png" alt="Microsoft Web IQ" width="660" height="360" loading="lazy">
+            </a>
+            <div class="card-body">
+              <h3><a href="https://blogs.bing.com/webiq/2026/6/announcing-microsoft-web-iq/">Announcing Microsoft Web IQ</a></h3>
+              <time datetime="2026-06-02">June 2, 2026</time>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="topic-section stories" aria-labelledby="publishing-topic">
+        <div class="topic-header">
+          <h2 id="publishing-topic">Web Publishing &amp; Optimization</h2>
+          <div class="carousel-controls" role="group" aria-label="Browse Web Publishing and Optimization articles" hidden>
+            <button type="button" class="carousel-previous" aria-label="Previous articles" aria-controls="publishing-carousel" disabled><svg class="icon" aria-hidden="true"><use href="#icon-chevron"/></svg></button>
+            <button type="button" class="carousel-next" aria-label="Next articles" aria-controls="publishing-carousel"><svg class="icon" aria-hidden="true"><use href="#icon-chevron"/></svg></button>
+          </div>
+        </div>
+        <div id="publishing-carousel" class="article-grid topic-carousel" tabindex="0" role="region" aria-label="Webmaster articles, scroll to explore">
+          <article class="story-card story" data-category="webmaster">
+            <a class="card-image" href="https://blogs.bing.com/webmaster/2026/10/introducing-topics-portfolio-beta-in-ai-performance/" aria-label="Read Introducing Topics Portfolio (Beta) in AI Performance">
+              <img src="https://blogs.bing.com/api/media/assets/uploads/2026/10/3116467b-686d-45c0-b503-73c7a656e604-Ex1_L2_View_Revised.png" alt="Bing Webmaster Tools Topics Portfolio dashboard" width="660" height="360" loading="lazy">
+            </a>
+            <div class="card-body">
+              <h3><a href="https://blogs.bing.com/webmaster/2026/10/introducing-topics-portfolio-beta-in-ai-performance/">Introducing Topics Portfolio (Beta) in AI Performance</a></h3>
+              <time datetime="2026-10-13">October 13, 2026</time>
+            </div>
+          </article>
+          <article class="story-card story" data-category="webmaster">
+            <a class="card-image" href="https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/" aria-label="Read Introducing AI Performance in Bing Webmaster Tools Public Preview">
+              <img src="https://blogs.bing.com/api/media/assets/files/1c/1cd93512-5ce6-42e2-98ed-1f62863c31f9.png" alt="AI Performance report in Bing Webmaster Tools" width="660" height="360" loading="lazy">
+            </a>
+            <div class="card-body">
+              <h3><a href="https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/">Introducing AI Performance in Bing Webmaster Tools Public Preview</a></h3>
+              <time datetime="2026-02-10">February 10, 2026</time>
+            </div>
+          </article>
+          <article class="story-card story" data-category="webmaster">
+            <a class="card-image" href="https://blogs.bing.com/webmaster/2025/12/Does-Duplicate-Content-Hurt-SEO-and-AI-Search-Visibility/" aria-label="Read Does Duplicate Content Hurt SEO and AI Search Visibility?">
+              <img src="https://blogs.bing.com/api/media/assets/files/2a/2ae0fdb8-8263-4827-8ae8-6cfb3f48d617.jpg" alt="Duplicate content and search visibility" width="660" height="360" loading="lazy">
+            </a>
+            <div class="card-body">
+              <h3><a href="https://blogs.bing.com/webmaster/2025/12/Does-Duplicate-Content-Hurt-SEO-and-AI-Search-Visibility/">Does Duplicate Content Hurt SEO and AI Search Visibility?</a></h3>
+              <time datetime="2025-12-19">December 19, 2025</time>
+            </div>
+          </article>
+          <article class="story-card story" data-category="webmaster">
+            <a class="card-image" href="https://blogs.bing.com/webmaster/2025/11/How-AI-Search-Is-Changing%E2%80%AFthe%E2%80%AFWay%E2%80%AFConversions%E2%80%AFare-Measured/" aria-label="Read How AI Search Is Changing the Way Conversions are Measured">
+              <img src="https://blogs.bing.com/api/media/assets/files/ac/acde6c65-3905-4650-b67f-51d271aa1879.png" alt="Measuring conversions in AI search" width="660" height="360" loading="lazy">
+            </a>
+            <div class="card-body">
+              <h3><a href="https://blogs.bing.com/webmaster/2025/11/How-AI-Search-Is-Changing%E2%80%AFthe%E2%80%AFWay%E2%80%AFConversions%E2%80%AFare-Measured/">How AI Search Is Changing the Way Conversions are Measured</a></h3>
+              <time datetime="2025-11-20">November 20, 2025</time>
+            </div>
+          </article>
+          <article class="story-card story" data-category="webmaster">
+            <a class="card-image" href="https://blogs.bing.com/webmaster/2025/10/Bing-Introduces-Support-for-the-data-nosnippet-HTML-Attribute/" aria-label="Read Bing Introduces Support for the data-nosnippet HTML Attribute">
+              <img src="https://blogs.bing.com/api/media/assets/files/8d/8dce8bde-d504-4cdf-aa67-d8561783a22f.jpg" alt="Publisher controls with the data-nosnippet HTML attribute" width="660" height="360" loading="lazy">
+            </a>
+            <div class="card-body">
+              <h3><a href="https://blogs.bing.com/webmaster/2025/10/Bing-Introduces-Support-for-the-data-nosnippet-HTML-Attribute/">Bing Introduces Support for the data-nosnippet HTML Attribute</a></h3>
+              <time datetime="2025-10-15">October 15, 2025</time>
+            </div>
+          </article>
+          <article class="story-card story" data-category="webmaster">
+            <a class="card-image" href="https://blogs.bing.com/webmaster/2025/7/Keeping-Content-Discoverable-with-Sitemaps-in-AI-Powered-Search/" aria-label="Read Keeping Content Discoverable with Sitemaps in AI Powered Search">
+              <img src="https://blogs.bing.com/api/media/assets/files/e3/e35b07a0-608b-4ea3-8d98-daa73552e7e0.jpg" alt="Sitemaps and content discovery in AI-powered search" width="660" height="360" loading="lazy">
+            </a>
+            <div class="card-body">
+              <h3><a href="https://blogs.bing.com/webmaster/2025/7/Keeping-Content-Discoverable-with-Sitemaps-in-AI-Powered-Search/">Keeping Content Discoverable with Sitemaps in AI Powered Search</a></h3>
+              <time datetime="2025-07-31">July 31, 2025</time>
+            </div>
+          </article>
+          <article class="story-card story" data-category="webmaster">
+            <a class="card-image" href="https://blogs.bing.com/webmaster/2025/6/Start-Using-Bing-Webmaster-Tools-to-Improve-Your-Site-Visibility/" aria-label="Read Start Using Bing Webmaster Tools to Improve Your Site Visibility">
+              <img src="https://blogs.bing.com/api/media/assets/files/0b/0bf1d1d2-7abc-4e81-aabb-1d680452807f.jpg" alt="Bing Webmaster Tools for improving site visibility" width="660" height="360" loading="lazy">
+            </a>
+            <div class="card-body">
+              <h3><a href="https://blogs.bing.com/webmaster/2025/6/Start-Using-Bing-Webmaster-Tools-to-Improve-Your-Site-Visibility/">Start Using Bing Webmaster Tools to Improve Your Site Visibility</a></h3>
+              <time datetime="2025-06-17">June 17, 2025</time>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="topic-section stories" aria-labelledby="engagement-topic">
+        <div class="topic-header">
+          <h2 id="engagement-topic">User Experience &amp; Engagement</h2>
+          <div class="carousel-controls" role="group" aria-label="Browse User Experience and Engagement articles" hidden>
+            <button type="button" class="carousel-previous" aria-label="Previous articles" aria-controls="rewards-carousel" disabled><svg class="icon" aria-hidden="true"><use href="#icon-chevron"/></svg></button>
+            <button type="button" class="carousel-next" aria-label="Next articles" aria-controls="rewards-carousel"><svg class="icon" aria-hidden="true"><use href="#icon-chevron"/></svg></button>
+          </div>
+        </div>
+        <div id="rewards-carousel" class="article-grid topic-carousel" tabindex="0" role="region" aria-label="Microsoft Rewards articles, scroll to explore">
+          <article class="story-card story" data-category="rewards">
+            <a class="card-image" href="https://blogs.bing.com/rewards/2026/11/the-total-prize-drop-is-here-and-millions-are-up-for-grabs-2/" aria-label="Read The Total Prize Drop is here, and millions are up for grabs">
+              <img src="https://blogs.bing.com/api/media/assets/uploads/2026/11/0596f818-a63a-40da-b0bf-9c8067597322-bing-blog_01.png" alt="Microsoft Rewards $2,000,000 Total Prize Drop" width="660" height="360" loading="lazy">
+            </a>
+            <div class="card-body">
+              <h3><a href="https://blogs.bing.com/rewards/2026/11/the-total-prize-drop-is-here-and-millions-are-up-for-grabs-2/">The Total Prize Drop is here, and millions are up for grabs</a></h3>
+              <time datetime="2026-11-09">November 9, 2026</time>
+            </div>
+          </article>
+          <article class="story-card story" data-category="rewards">
+            <a class="card-image" href="https://blogs.bing.com/rewards/2026/10/real-people-real-winners-your-chance-could-be-next/" aria-label="Read Real people. Real winners. Your chance could be next.">
+              <img src="https://blogs.bing.com/api/media/assets/uploads/2026/10/d31fc52d-b6f0-4dd2-bf51-c275d4083060-bb-camille.png" alt="Microsoft Rewards winner Camille enjoying a sunny day by the water" width="660" height="360" loading="lazy">
+            </a>
+            <div class="card-body">
+              <h3><a href="https://blogs.bing.com/rewards/2026/10/real-people-real-winners-your-chance-could-be-next/">Real people. Real winners. Your chance could be next.</a></h3>
+              <time datetime="2026-10-16">October 16, 2026</time>
+            </div>
+          </article>
+          <article class="story-card story" data-category="rewards">
+            <a class="card-image" href="https://blogs.bing.com/rewards/2025/8/announcing-microsoft-rewards-ultimate-giveaway-more-prizes-more-winners/" aria-label="Read Announcing Microsoft Rewards Ultimate Giveaway: More Prizes, More Winners">
+              <img src="https://blogs.bing.com/api/media/assets/files/dc/dc4db6be-f028-45ff-9e21-8d205698ae83.png" alt="Microsoft Rewards Ultimate Giveaway" width="660" height="360" loading="lazy">
+            </a>
+            <div class="card-body">
+              <h3><a href="https://blogs.bing.com/rewards/2025/8/announcing-microsoft-rewards-ultimate-giveaway-more-prizes-more-winners/">Announcing Microsoft Rewards Ultimate Giveaway: More Prizes, More Winners</a></h3>
+              <time datetime="2025-08-20">August 20, 2025</time>
+            </div>
+          </article>
+          <article class="story-card story" data-category="rewards">
+            <a class="card-image" href="https://blogs.bing.com/rewards/2025/3/more-chances-to-win-microsoft-rewards-2000000-usd-sweepstakes/" aria-label="Read More Chances to Win: Microsoft Rewards $2,000,000 USD Sweepstakes">
+              <img src="https://blogs.bing.com/api/media/assets/files/26/26ec2a02-b6d3-4577-931a-02966b2d35f9.png" alt="Microsoft Rewards $2,000,000 USD Sweepstakes" width="660" height="360" loading="lazy">
+            </a>
+            <div class="card-body">
+              <h3><a href="https://blogs.bing.com/rewards/2025/3/more-chances-to-win-microsoft-rewards-2000000-usd-sweepstakes/">More Chances to Win: Microsoft Rewards $2,000,000 USD Sweepstakes</a></h3>
+              <time datetime="2025-03-31">March 31, 2025</time>
+            </div>
+          </article>
+        </div>
+      </section>
+      <noscript><p>Enable JavaScript to search stories, filter categories, and switch layouts.</p></noscript>
+    </main>
+
+    <footer class="page-width site-footer">
+      <span>&copy; 2026 Microsoft</span>
+      <nav aria-label="Legal"><a href="https://privacy.microsoft.com/privacystatement">Privacy</a><a href="https://www.microsoft.com/servicesagreement">Terms of use</a><a href="https://support.microsoft.com/contactus">Contact Microsoft</a></nav>
+    </footer>
+  </body>
+</html>
